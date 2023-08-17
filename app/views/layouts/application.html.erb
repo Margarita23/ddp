@@ -7,21 +7,41 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", :media => "all", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+
+    <div>
+      <%= render 'layouts/flashmessages' %>
+    </div>
+
+  <% if current_user %>
     <header>
       <nav class="menu">
-          <ul>
-              <li><a href="#" title="Перейти на сторінку 'Поточні захисти'">Поточні захисти</a></li>
-              <li><a href="#" title="Перейти на сторінку 'Історія'">Історія</a></li>
-              <li><a href="#" title="Перейти на сторінку 'Моє членство в комісіях'">Моє членство в комісіях</a></li>
-              <li><a href="#" title="Перейти на сторінку 'Налаштування аккаунта'">Налаштування аккаунта</a></li>
-          </ul>
+        <ul>
+          <li><a href="#" title="Перейти на сторінку 'Поточні захисти'">Поточні захисти</a></li>
+          <li><a href="#" title="Перейти на сторінку 'Історія'">Історія</a></li>
+          <li><a href="#" title="Перейти на сторінку 'Моє членство в комісіях'">Моє членство в комісіях</a></li>
+          <li><a href="#" title="Перейти на сторінку 'Налаштування аккаунта'">Налаштування аккаунта</a></li>
+        </ul>
       </nav>
     </header>
-    <%= yield %>
-    <footer>Created by Marharyta Andriukhina - 2023</footer>
+
+    Hello user!
+
+    <p><%= current_user.role %></p>
+
+    <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %>
+    
+  <% else %>
+    Hello stranger!
+    <%= link_to "Sign Up", new_user_registration_path %>
+    <%= link_to "Login", new_user_session_path %>
+  <% end %>
+
+  <%= yield %>
+  
+  <footer>Created by Marharyta Andriukhina - 2023</footer>
   </body>
 </html>
