@@ -1,0 +1,44 @@
+.wrapper {
+    top: 30%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.pre-header {
+    position: relative;
+    z-index: 1;
+}
+
+.pre-header:after {
+    content: "";
+    position: absolute;
+    right: 20%;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+    background-image: url("welcome/education1.png");
+    background-position: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.action-board {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+
+    .btn {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}

@@ -1,2 +1,12 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="wrapper">
+    <header>
+        <h1>Welcome to Defence of Diploma Project</h1>
+        <h5 class="pre-header">This project will help the members of the examination committee to give grades to students for diploma projects.</h5>
+    </header>
+    <div class="action-board">
+        To start: 
+        <%= button_to "Sign Up", new_user_registration_path, { class: 'btn btn-secondary'} %>
+        or
+        <%= button_to "Login", new_user_session_path, { class: 'btn btn-success'}  %>
+    </div>
+</div>
