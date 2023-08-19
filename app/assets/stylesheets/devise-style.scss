@@ -1,0 +1,21 @@
+.wrapper.login {
+    display: flex;
+    justify-content: center;
+
+    h2 {
+        text-align: center;
+    }
+
+    .login-form {
+        width: 500px;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        
+        .btn {
+            justify-self: right;
+        }
+    }
+}
