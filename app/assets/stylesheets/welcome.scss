@@ -13,7 +13,6 @@
 
 .pre-header {
     position: relative;
-    z-index: 1;
 }
 
 .pre-header:after {
@@ -27,7 +26,7 @@
     background-position: 0;
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: -10;
 }
 
 .action-board {
