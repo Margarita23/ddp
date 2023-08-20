@@ -6,7 +6,7 @@
         text-align: center;
     }
 
-    .login-form {
+    .login-form, .sign-up-form {
         width: 500px;
     }
 
@@ -16,6 +16,10 @@
         
         .btn {
             justify-self: right;
+        }
+
+        .btn-sign-up {
+            margin-top: 20px;
         }
     }
 }
