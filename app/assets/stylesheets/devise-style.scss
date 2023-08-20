@@ -6,7 +6,7 @@
         text-align: center;
     }
 
-    .login-form, .sign-up-form {
+    .login-form, .sign-up-form, .forgot-pass-form {
         width: 500px;
     }
 
@@ -18,7 +18,7 @@
             justify-self: right;
         }
 
-        .btn-sign-up {
+        .btn-sign-up, .btn-forgot-pass {
             margin-top: 20px;
         }
     }
