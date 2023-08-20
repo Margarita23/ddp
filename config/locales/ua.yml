@@ -2,3 +2,33 @@ ua:
   welcomeToDdp: "Ласкаво просимо до проєкту 'Захист Диплому' (DDP)"
   changeLanguage: "Змінити мову"
   prewelcomeToDdp: "Цей проєкт допоможе членам екзаменаційної комісії виставити оцінки студентам за дипломні проєкти."
+  activerecord:
+     attributes:
+       user:
+         confirmation_sent_at: Підтвердження надіслано о
+         confirmation_token: маркер підтвердження
+         confirmed_at: Підтверджено о
+         created_at: Створено о
+         current_password: поточний пароль
+         current_sign_in_at: Поточний вхід у
+         current_sign_in_ip: поточний IP входу
+         email: Електронна пошта
+         encrypted_password: зашифрований пароль
+         failed_attempts: Невдалі спроби
+         last_sign_in_at: Останній вхід о
+         last_sign_in_ip: IP останнього входу
+         locked_at: Заблоковано на
+         password: Пароль
+         password_confirmation: Підтвердження пароля
+         remember_created_at: запам'ятати створено о
+         remember_me: запам'ятати мене
+         reset_password_sent_at: Скинути пароль, надісланий о
+         reset_password_token: Скинути маркер пароля
+         sign_in_count: кількість входів
+         unconfirmed_email: Непідтверджена електронна адреса
+         unlock_token: Маркер розблокування
+         updated_at: Оновлено о
+     models:
+       user:
+         one: Користувач
+         other: Користувачі
