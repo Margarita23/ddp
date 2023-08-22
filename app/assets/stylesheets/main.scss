@@ -8,18 +8,3 @@ footer {
     background-color: rgb(34, 33, 40);
     color: rgb(234, 228, 228);
 }
-
-nav.menu ul {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    justify-content: flex-end;
-
-    li {
-        padding-right: 20px;
-    }
-
-    li:last-child{
-        padding-right: 0px;
-    }
-}

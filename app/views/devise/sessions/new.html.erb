@@ -1,6 +1,8 @@
+<%= button_to t('devise.shared.links.back'), root_path, { class: 'btn btn-secondary btn-back', :method => :get}  %>
+
 <div class="wrapper login">
   <section class="login-form">
-        <h2><%= t('devise.sessions.new.sign_in') %></h2>
+    <h2><%= t('devise.sessions.new.sign_in') %></h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">

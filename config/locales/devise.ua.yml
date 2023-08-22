@@ -59,6 +59,15 @@ ua:
       already_signed_out: "Вийшов успішно."
       new:
         sign_in: Увійти
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Ви не отримали інструкції щодо підтвердження?
+        didn_t_receive_unlock_instructions: Не отримали інструкції з розблокування?
+        forgot_your_password: Забули свій пароль?
+        sign_in: Увійти
+        sign_in_with_provider: Увійти за допомогою %{provider}
+        sign_up: Зареєструватися
     unlocked:
       send_instructions: "Ви отримаєте електронний лист з інструкціями щодо того, як розблокувати обліковий запис за кілька хвилин."
       send_paranoid_instructions: "Якщо ваш обліковий запис існує, ви отримаєте електронний лист з інструкціями щодо його розблокування за кілька хвилин."

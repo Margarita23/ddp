@@ -2,6 +2,7 @@ ua:
   welcomeToDdp: "Ласкаво просимо до проєкту 'Захист Диплому' (DDP)"
   changeLanguage: "Змінити мову"
   prewelcomeToDdp: "Цей проєкт допоможе членам екзаменаційної комісії виставити оцінки студентам за дипломні проєкти."
+  board: "Головна"
   activerecord:
      attributes:
        user:

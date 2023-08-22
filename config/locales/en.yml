@@ -33,6 +33,7 @@ en:
   welcomeToDdp: "Welcome to Defence of Diploma Project"
   changeLanguage: "Change language"
   prewelcomeToDdp: "This project will help the members of the examination committee to give grades to students for diploma projects."
+  board: "Board"
   activerecord:
       attributes:
         user:

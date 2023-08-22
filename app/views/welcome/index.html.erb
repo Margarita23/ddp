@@ -16,9 +16,13 @@
         <h5 class="pre-header"><%= t(:prewelcomeToDdp) %></h5>
     </header>
     <div class="action-board">
-        To start: 
-        <%= button_to t('devise.registrations.new.sign_up'), new_user_registration_path, { class: 'btn btn-outline-success', :method => :get} %>
-        or
-        <%= button_to t('devise.sessions.new.sign_in'), new_user_session_path, { class: 'btn btn-success', :method => :get}  %>
+        <% if !current_user %>
+            To start: 
+            <%= button_to t('devise.registrations.new.sign_up'), new_user_registration_path, { class: 'btn btn-outline-success', :method => :get} %>
+            or
+            <%= button_to t('devise.sessions.new.sign_in'), new_user_session_path, { class: 'btn btn-success', :method => :get}  %>
+        <% else %>
+             <%= button_to t('board'), board_index_path, { class: 'btn btn-success', :method => :get}  %>
+        <% end %>
     </div>
 </div>
