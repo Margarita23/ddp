@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum role: [:commissioner, :secretary]
   after_initialize :set_default_role, :if => :new_record?
+
   def set_default_role
+    puts "!!!!!!!!!"
+    puts self.role
     self.role ||= :commissioner
   end
 

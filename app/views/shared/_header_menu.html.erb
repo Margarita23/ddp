@@ -19,7 +19,8 @@
                         <li><a class="dropdown-item disabled" href="#">Action</a></li>
                         <li><a class="dropdown-item disabled" href="#">Another action</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#" title="Перейти на сторінку 'Налаштування аккаунта'">Налаштування аккаунта</a></li>
+                        <li><%= link_to 'Налаштування аккаунта', edit_user_registration_path, { class: "dropdown-item", title: 'Налаштування аккаунта' } %></li>
+                        <li><%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, { 'data-turbo-method': :delete, class: "dropdown-item", title: t('devise.shared.links.sign_out') } %></li>
                     </ul>
                 </li>
             </ul>

@@ -25,6 +25,11 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
 
+      <div class="field">
+        <%= f.label "Я секретар екзамінаційної комісії" %>
+        <%= f.check_box :role, { checked: true }, :secretary, :commissioner %>
+      </div>
+
       <div class="actions">
         <%= f.submit t('devise.registrations.new.sign_up'), class: "btn btn-success btn-lg btn-sign-up" %>
       </div>

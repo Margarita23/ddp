@@ -31,6 +31,11 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label "Я секретар екзамінаційної комісії" %>
+    <%= f.check_box :role, { checked: current_user.role == "secretary" }, :secretary, :commissioner %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
