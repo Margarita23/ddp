@@ -52,6 +52,7 @@ gem "jquery-rails", '~> 4.4'
 #Internationalization (I18n)
 gem 'rails-i18n', '~> 7.0', '>= 7.0.7'
 
+gem 'cancancan', '~> 3.5'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
