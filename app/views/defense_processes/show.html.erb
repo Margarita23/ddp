@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @defense_process %>
+
+<div>
+  <%= link_to "Edit this defense process", edit_defense_process_path(@defense_process) %> |
+  <%= link_to "Back to defense processes", defense_processes_path %>
+
+  <%= button_to "Destroy this defense process", @defense_process, method: :delete %>
+</div>

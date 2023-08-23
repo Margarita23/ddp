@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Defense processes</h1>
+
+<div id="defense_processes">
+  <% @defense_processes.each do |defense_process| %>
+    <%= render defense_process %>
+    <p>
+      <%= link_to "Show this defense process", defense_process %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New defense process", new_defense_process_path %>

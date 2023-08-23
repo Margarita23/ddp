@@ -6,9 +6,9 @@ class User < ApplicationRecord
   enum role: [:commissioner, :secretary]
   after_initialize :set_default_role, :if => :new_record?
 
+  has_many :defense_processes
+
   def set_default_role
-    puts "!!!!!!!!!"
-    puts self.role
     self.role ||= :commissioner
   end
 
