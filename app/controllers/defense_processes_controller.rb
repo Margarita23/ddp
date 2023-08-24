@@ -22,6 +22,7 @@ class DefenseProcessesController < ApplicationController
   # POST /defense_processes or /defense_processes.json
   def create
     @defense_process = DefenseProcess.new(defense_process_params)
+    @defense_process.user_id = current_user.id
 
     respond_to do |format|
       if @defense_process.save

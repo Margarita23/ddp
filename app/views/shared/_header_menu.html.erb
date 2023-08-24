@@ -4,7 +4,10 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><%= button_to "Створити Захист", new_defense_process_path, { method: :get, class: "btn btn-outline-success" } %></li>
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" title="Перейти на сторінку 'Поточні захисти'">Поточні захисти</a>
+                    <%= link_to t(:board), board_index_path, {title: "Перейти на сторінку #{:board}", class: "nav-link active", 'aria-current': "page"} %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Поточні захисти", defense_processes_path, {title: "Перейти на сторінку 'Поточні захисти'", class: "nav-link",} %>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" title="Перейти на сторінку 'Історія'">Історія</a>
