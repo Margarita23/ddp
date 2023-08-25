@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  form: MyString
+  specialization: MyString
+  name_number: MyString
+  specialty_code: 1
+  defense_process: one
+
+two:
+  form: MyString
+  specialization: MyString
+  name_number: MyString
+  specialty_code: 1
+  defense_process: two

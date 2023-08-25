@@ -1,0 +1,40 @@
+
+<%= form_for @group, url: defense_process_groups_path, html: { method: :post } do |form| %>
+
+<% if group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+
+  <div class="field">
+    <%= form.label "Форма навчання" %><br />
+    <%= form.select :form, [["Денна", "Денна"], ["Заочна", "Заочна"]], selected: "Денна", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Спеціалізація" %><br />
+    <%= form.text_field :specialization %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Назва групи" %><br />
+    <%= form.text_field :name_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Шифр спеціальності" %><br />
+    <%= form.text_field :specialty_code, data: { numeric: true } %>
+  </div>
+
+    <%= form.submit %>
+  </div>
+<% end %>

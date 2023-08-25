@@ -2,6 +2,12 @@
 
 <%= render @defense_process %>
 
+<%= button_to "Створити Групу", new_defense_process_group_path(defense_process_id: @defense_process.id), { method: :get, class: "btn btn-outline-success" } %>
+
+<textarea id="w3review" name="w3review" rows="4" cols="50">
+  At
+</textarea>
+
 <div>
   <%= link_to "Edit this defense process", edit_defense_process_path(@defense_process) %> |
   <%= link_to "Back to defense processes", defense_processes_path %>

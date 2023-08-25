@@ -10,13 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_160500) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_203829) do
   create_table "defense_processes", force: :cascade do |t|
     t.string "nameID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_defense_processes_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "form"
+    t.string "specialization"
+    t.string "name_number"
+    t.integer "specialty_code"
+    t.integer "defense_process_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["defense_process_id"], name: "index_groups_on_defense_process_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "full_name"
+    t.string "theme"
+    t.string "leader"
+    t.date "date"
+    t.integer "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_students_on_group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,4 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_160500) do
   end
 
   add_foreign_key "defense_processes", "users"
+  add_foreign_key "groups", "defense_processes"
+  add_foreign_key "students", "groups"
 end
