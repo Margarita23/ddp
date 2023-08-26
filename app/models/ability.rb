@@ -4,6 +4,17 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+  
+      user ||= User.new # guest user (not logged in)
+      
+      alias_action :create, :read, :update, :destroy, to: :crud
+      
+      if !user.new_record?
+        can :crud, [DefenseProcess, Group]
+        can :create_group, DefenseProcess
+      else
+        cannot :crud, [DefenseProcess, Group]
+      end
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?

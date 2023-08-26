@@ -1,4 +1,5 @@
 class DefenseProcessesController < ApplicationController
+  load_and_authorize_resource :through => :current_user
   before_action :set_defense_process, only: %i[ show edit update destroy ]
 
   # GET /defense_processes or /defense_processes.json
@@ -8,6 +9,7 @@ class DefenseProcessesController < ApplicationController
 
   # GET /defense_processes/1 or /defense_processes/1.json
   def show
+    @group = Group.new
   end
 
   # GET /defense_processes/new

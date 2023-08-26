@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
-  # load_and_authorize_resource :group, :through => :defense_process
+  load_and_authorize_resource :defense_process
+  load_and_authorize_resource :group, :through => :defense_process
   before_action :set_group, only: %i[ show edit update destroy ]
 
   # GET /groups or /groups.json
@@ -22,11 +23,13 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    @group = Group.new(group_params)
+    puts('RITA!!!!!')
+    @group = @defense_process.groups.build(group_params)
+    # @group = Group.new(group_params)
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to group_url(@group), notice: "Group was successfully created." }
+        format.html { redirect_to defense_process_group_url(@defense_process.id, @group), notice: "Group was successfully created." }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +42,7 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
+        format.html { redirect_to defense_process_group_url(@defense_process.id, @group), notice: "Group was successfully updated." }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +56,7 @@ class GroupsController < ApplicationController
     @group.destroy
 
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
+      format.html { redirect_to defense_process_groups_url, notice: "Group was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -66,6 +69,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.fetch(:group, {}).permit(:form, :specialization, :name_number, :specialty_code, :defense_process_id)
+      params.fetch(:group, {}).permit(:form, :specialization, :name_number, :specialty_code)
     end
 end

@@ -6,7 +6,7 @@
   <% @groups.each do |group| %>
     <%= render group %>
     <p>
-      <%= link_to "Show this group", group %>
+      <%= link_to "Show this group", defense_process_group_path(@defense_process.id, group.id), method: :get %>
     </p>
   <% end %>
 </div>

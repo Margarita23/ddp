@@ -2,7 +2,42 @@
 
 <%= render @defense_process %>
 
-<%= button_to "Створити Групу", new_defense_process_group_path(defense_process_id: @defense_process.id), { method: :get, class: "btn btn-outline-success" } %>
+<div class="defense_container">
+ <button class="btn btn-outline-success btn-create-defense">Створити Групу</button>
+
+  <div class="form_container">
+    <h1>New group</h1>
+
+    <%= form_for @group, url: defense_process_groups_path(@defense_process.id), method: :post do |form| %>
+      <div>
+
+      <div class="field">
+        <%= form.label "Форма навчання" %><br />
+        <%= form.select :form, [["Денна", "Денна"], ["Заочна", "Заочна"]], selected: "Денна", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Спеціалізація" %><br />
+        <%= form.text_field :specialization %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Назва групи" %><br />
+        <%= form.text_field :name_number %>
+      </div>
+
+      <div class="field">
+        <%= form.label "Шифр спеціальності" %><br />
+        <%= form.text_field :specialty_code, data: { numeric: true } %>
+      </div>
+
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
 
 <textarea id="w3review" name="w3review" rows="4" cols="50">
   At

@@ -5,3 +5,9 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+console.log($('.defense_container'));
+
+$( ".btn-create-defense" ).on( "click", function() {
+    $( ".form_container" ).toggle("slow");
+  });
