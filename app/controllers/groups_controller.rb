@@ -3,11 +3,6 @@ class GroupsController < ApplicationController
   load_and_authorize_resource :group, :through => :defense_process
   before_action :set_group, only: %i[ show edit update destroy ]
 
-  # GET /groups or /groups.json
-  def index
-    @groups = Group.all
-  end
-
   # GET /groups/1 or /groups/1.json
   def show
   end
@@ -23,7 +18,6 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    puts('RITA!!!!!')
     @group = @defense_process.groups.build(group_params)
     # @group = Group.new(group_params)
 
@@ -56,7 +50,7 @@ class GroupsController < ApplicationController
     @group.destroy
 
     respond_to do |format|
-      format.html { redirect_to defense_process_groups_url, notice: "Group was successfully destroyed." }
+      format.html { redirect_to defense_processes_url, notice: "Group was successfully destroyed." }
       format.json { head :no_content }
     end
   end

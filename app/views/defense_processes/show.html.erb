@@ -3,10 +3,10 @@
 <%= render @defense_process %>
 
 <div class="defense_container">
- <button class="btn btn-outline-success btn-create-defense">Створити Групу</button>
+ <button class="btn btn-outline-success btn-create-defense"><%= t("group.create")%></button>
 
   <div class="form_container">
-    <h1>New group</h1>
+    <h1><%= t("group.new") %></h1>
 
     <%= form_for @group, url: defense_process_groups_path(@defense_process.id), method: :post do |form| %>
       <div>
@@ -31,11 +31,22 @@
         <%= form.text_field :specialty_code, data: { numeric: true } %>
       </div>
 
-        <%= form.submit %>
+        <%= form.submit t("group.create") %>
       </div>
     <% end %>
 
   </div>
+</div>
+
+<h1><%= t("group.groups") %></h1>
+
+<div id="groups">
+  <% @defense_process.groups.each do |group| %>
+    <%= render group %>
+    <p>
+      <%= link_to "Show this group", defense_process_group_path(@defense_process.id, group.id), method: :get %>
+    </p>
+  <% end %>
 </div>
 
 

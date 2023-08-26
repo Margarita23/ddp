@@ -3,6 +3,10 @@ ua:
   changeLanguage: "Змінити мову"
   prewelcomeToDdp: "Цей проєкт допоможе членам екзаменаційної комісії виставити оцінки студентам за дипломні проєкти."
   board: "Головна"
+  group:
+    groups: "Групи"
+    create: "Створити Групу"
+    new: "Нова Група"
   activerecord:
      attributes:
        user:
