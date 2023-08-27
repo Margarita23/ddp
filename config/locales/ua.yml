@@ -7,6 +7,10 @@ ua:
     groups: "Групи"
     create: "Створити Групу"
     new: "Нова Група"
+  defense_process:  
+    defense_processes: "Список захистів"
+    create: "Створити Захист"
+    new: "Новий захист"
   activerecord:
      attributes:
        user:

@@ -15,16 +15,14 @@
       <%= render 'layouts/flashmessages' %>
     </div>
 
-  <% if current_user %>
-    <%= render 'shared/header_menu' %>
-    Hello user!
-    <p><%= current_user.role %></p>
-  <% end %>
+    <% if current_user %>
+      <%= render 'shared/header_menu' %>
+    <% end %>
 
-  <div class="container">
-    <%= yield %>
-  </div>
-  
-  <footer>Created by Marharyta Andriukhina - 2023</footer>
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+    <footer>Created by Marharyta Andriukhina - 2023</footer>
   </body>
 </html>

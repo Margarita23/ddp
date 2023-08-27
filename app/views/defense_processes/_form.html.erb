@@ -12,6 +12,11 @@
   <% end %>
 
   <div>
+    <div class="field">
+      <%= form.label "Назва" %><br />
+      <%= form.text_field :nameID, class: "form-control" %>
+    </div>
+
     <%= form.submit %>
   </div>
 <% end %>

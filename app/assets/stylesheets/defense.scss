@@ -3,3 +3,17 @@
         display: none;
     }
 }
+
+.defense_process_wrap {
+    display: flex;
+    align-items: center;
+
+    .bi-eye {
+        margin: 0px 10px 0px 10px;
+        font-size: 25px;
+    }
+}
+
+.bi.defense {
+    font-size: 25px;
+}

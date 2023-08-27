@@ -1,5 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to defense_processes_path do %>
+  <i class="bi bi-arrow-left-circle defense"></i> | 
+<% end %>
+
+<%= link_to edit_defense_process_path(@defense_process) do %>
+    <i class="bi bi-pencil defense"></i> | 
+<% end%>
+
+<%= button_to defense_process_path, method: :delete do %>
+  <i class="bi bi-trash defense"></i>
+<% end %>
+
 <%= render @defense_process %>
 
 <div class="defense_container">
@@ -42,21 +54,8 @@
 
 <div id="groups">
   <% @defense_process.groups.each do |group| %>
-    <%= render group %>
     <p>
-      <%= link_to "Show this group", defense_process_group_path(@defense_process.id, group.id), method: :get %>
+      <%= link_to "#{group.name_number} (#{group.specialization})", defense_process_group_path(@defense_process.id, group.id), method: :get %>
     </p>
   <% end %>
-</div>
-
-
-<textarea id="w3review" name="w3review" rows="4" cols="50">
-  At
-</textarea>
-
-<div>
-  <%= link_to "Edit this defense process", edit_defense_process_path(@defense_process) %> |
-  <%= link_to "Back to defense processes", defense_processes_path %>
-
-  <%= button_to "Destroy this defense process", @defense_process, method: :delete %>
 </div>

@@ -68,6 +68,6 @@ class DefenseProcessesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def defense_process_params
-      params.fetch(:defense_process, {})
+      params.fetch(:defense_process, {}).permit(:nameID)
     end
 end

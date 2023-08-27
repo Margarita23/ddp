@@ -38,6 +38,10 @@ en:
     groups: "Groups"
     create: "Create Group"
     new: "New Group"
+  defense_process:  
+    defense_processes: "Defense processes"
+    create: "Create Defense"
+    new: "New Defense Process"
   activerecord:
       attributes:
         user:

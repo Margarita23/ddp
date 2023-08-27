@@ -1,14 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Defense processes</h1>
+<h1><%= t("defense_process.defense_processes")%></h1>
 
 <div id="defense_processes">
   <% @defense_processes.each do |defense_process| %>
-    <%= render defense_process %>
-    <p>
-      <%= link_to "Show this defense process", defense_process %>
-    </p>
+    <div class="defense_process_wrap">
+      <%= render defense_process %>
+      <%= link_to defense_process  do %>
+        <i class="bi bi-eye"></i>
+      <% end %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New defense process", new_defense_process_path %>
+<%= link_to t("defense_process.new"), new_defense_process_path %>
