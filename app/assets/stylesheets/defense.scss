@@ -2,6 +2,10 @@
     .form_container {
         display: none;
     }
+
+    .btn-success {
+        margin-top: 20px;
+    }
 }
 
 .defense_process_wrap {
@@ -16,4 +20,11 @@
 
 .bi.defense {
     font-size: 25px;
+}
+
+.btn-defense_trash {
+    border: none;
+    background: none;
+    color: rgba(13, 110, 253, 1);
+    text-decoration: underline;
 }
