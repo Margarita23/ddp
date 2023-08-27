@@ -17,24 +17,23 @@
 
   <div class="field">
     <%= form.label "Форма навчання" %><br />
-    <%= form.select :form, [["Денна", "Денна"], ["Заочна", "Заочна"]], selected: "Денна", class: "form-control" %>
+    <%= form.select(:form, [["Денна", "Денна"], ["Заочна", "Заочна"]], { selected: "Денна" }, { class: "form-select" }) %>
   </div>
 
   <div class="field">
     <%= form.label "Спеціалізація" %><br />
-    <%= form.text_field :specialization %>
+    <%= form.text_field :specialization, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label "Назва групи" %><br />
-    <%= form.text_field :name_number %>
+    <%= form.text_field :name_number, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label "Шифр спеціальності" %><br />
-    <%= form.text_field :specialty_code, data: { numeric: true } %>
+    <%= form.text_field :specialty_code, data: { numeric: true }, class: "form-control" %>
   </div>
-
-    <%= form.submit %>
+    <%= form.submit "Редагувати", class: "btn btn-success" %>
   </div>
 <% end %>

@@ -10,5 +10,5 @@
   <%= link_to "Edit this group", edit_defense_process_group_path(@defense_process.id, @group.id) %> |
   <%= link_to "Back to groups", defense_process_path(@defense_process.id) %>
 
-  <%= button_to "Destroy this group", defense_process_group_path, method: :delete %>
+  <%= button_to "Destroy this group", defense_process_group_path, method: :delete, class: "btn btn-danger" %>
 </div>
