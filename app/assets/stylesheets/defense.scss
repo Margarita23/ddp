@@ -8,6 +8,10 @@
     }
 }
 
+#defense_processes {
+    margin-bottom: 20px;
+}
+
 .defense_process_wrap {
     display: flex;
     align-items: center;
@@ -27,4 +31,8 @@
     background: none;
     color: rgba(13, 110, 253, 1);
     text-decoration: underline;
+}
+
+.btn-create-defense {
+    margin-top: 20px;
 }

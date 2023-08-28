@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
     @group.destroy
 
     respond_to do |format|
-      format.html { redirect_to defense_processes_url, notice: "Group was successfully destroyed." }
+      format.html { redirect_to defense_process_url(@defense_process.id), notice: "Group was successfully destroyed." }
       format.json { head :no_content }
     end
   end

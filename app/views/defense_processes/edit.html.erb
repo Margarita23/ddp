@@ -1,10 +1,5 @@
+<%= render partial: "back_edit_trash_btns", locals: { back: defense_processes_path, edit: false, delete: false } %>
+
 <h1>Editing defense process</h1>
 
 <%= render "form", defense_process: @defense_process %>
-
-<br>
-
-<div>
-  <%= link_to "Show this defense process", @defense_process %> |
-  <%= link_to "Back to defense processes", defense_processes_path %>
-</div>
