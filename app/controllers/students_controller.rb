@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  # load_and_authorize_resource :student, :through => :group
+  load_and_authorize_resource
   before_action :set_student, only: %i[ show edit update destroy ]
 
   # GET /students or /students.json
@@ -23,6 +23,7 @@ class StudentsController < ApplicationController
   # POST /students or /students.json
   def create
     @student = Student.new(student_params)
+    @student.group_id = params[:group_id]
 
     respond_to do |format|
       if @student.save
@@ -66,6 +67,6 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.fetch(:student, {})
+      params.fetch(:student, {}).permit(:full_name, :theme, :leader, :date)
     end
 end
