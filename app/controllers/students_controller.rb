@@ -27,7 +27,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to student_url(@student), notice: "Student was successfully created." }
+        format.html { redirect_back fallback_location: root_path, notice: "Student was successfully created." }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,6 +57,16 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url, notice: "Student was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  #Start
+  def create_pdf
+    pdf = WickedPdf.new.pdf_from_string('<!doctype html><html><head></head><body>Привіт</body></html>',
+      :encoding => 'UTF-8',
+      :page_size => 'A4',
+      :orientation => 'Portrait')
+
+      send_data(pdf, :filename  => 'myPDF', :disposition => 'attachment')
   end
 
   private

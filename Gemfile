@@ -53,6 +53,10 @@ gem "jquery-rails", '~> 4.4'
 gem 'rails-i18n', '~> 7.0', '>= 7.0.7'
 
 gem 'cancancan', '~> 3.5'
+
+#pdf generators
+gem 'wicked_pdf', '~> 2.1'
+gem 'wkhtmltopdf-binary'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
