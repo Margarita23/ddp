@@ -1,2 +1,12 @@
 <div id="<%= dom_id student %>">
+    <p>
+        <b>ПІБ</b> : <%= student.full_name %> <br />
+        <b>Тема диплому</b> : <%= student.theme %> <br />
+        <b>Керівник</b> : <%= student.leader %> <br />
+        <b>Дата захисту</b> : <%= student.date %> <br />
+        <%= link_to student_path(student.id), method: :get  do %>
+            <i class="bi bi-eye defense"></i>
+        <% end %>
+        <%= link_to 'DOWNLOAD PDF', student_path(student.id, format: :pdf) %>
+    </p>
 </div>

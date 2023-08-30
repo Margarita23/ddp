@@ -1,10 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
+<%= render partial: "/shared/back_edit_trash_btns", locals: { back: :back, edit: edit_student_path(@student), delete: student_path } %>
+
 <%= render @student %>
 
 <div>
-  <%= link_to "Edit this student", edit_student_path(@student) %> |
-  <%= link_to "Back to students", students_path %>
-
-  <%= button_to "Destroy this student", @student, method: :delete %>
+  <%= link_to "Open list of students", students_path %>
 </div>

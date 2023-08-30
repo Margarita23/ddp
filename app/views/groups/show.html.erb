@@ -4,10 +4,6 @@
 
 <%= render @group %>
 
-<textarea id="w3review" name="w3review" rows="4" cols="50">
-  At
-</textarea>
-
 <div class="student_container">
  <button class="btn btn-outline-success btn-create-student">Додати студента в группу</button>
 
@@ -44,18 +40,34 @@
   </div>
 </div>
 
-<h1>Список студентів</h1>
+<div class="student__list">
+  <h1>Список студентів</h1>
 
-<div id="students">
-  <% @group.students.each do |student| %>
-    <p>
-      <b>ПІБ</b> : <%= student.full_name %> <br />
-      <b>Тема диплому</b> : <%= student.theme %> <br />
-      <b>Керівник</b> : <%= student.leader %> <br />
-      <b>Дата захисту</b> : <%= student.date %> <br />
-      <%= link_to student_path(student.id), method: :get  do %>
-        <i class="bi bi-eye defense"></i>
-      <% end %>
-    </p>
-  <% end %>
+  <table>
+    <tr>
+      <th></th>
+      <th>ПІБ</th>
+      <th>Тема диплому</th>
+      <th>Керівник</th>
+      <th>Дата захисту</th>
+      <th></th>
+    </tr>
+    <% @group.students.each do |student| %>
+    <tr>
+      <td><%= @group.students.index(student) + 1 %></td>
+      <td><%= student.full_name %></td>
+      <td><%= student.theme %></td>
+      <td><%= student.leader %></td>
+      <td><%= student.date %></td>
+      <td>
+        <%= link_to student_path(student.id), method: :get  do %>
+          <i class="bi bi-eye defense"></i>
+        <% end %>
+      </td>
+    </tr>
+      
+    <% end %>
+    
+  </table>
+
 </div>

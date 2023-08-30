@@ -9,6 +9,15 @@ class StudentsController < ApplicationController
 
   # GET /students/1 or /students/1.json
   def show
+    # create_pdf
+    # @student = scope.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name", template: "students/show", formats: [:html]
+      end
+    end
   end
 
   # GET /students/new
