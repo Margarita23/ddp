@@ -7,13 +7,19 @@
 
     <% if edit %> 
         <%= link_to edit do %>
-             | <i class="bi bi-pencil defense"></i>
+            <i class="bi bi-pencil defense"></i>
         <% end%>
     <% end %>
 
     <% if delete %> 
         <%= button_to delete, method: :delete, class: "btn-defense_trash" do %>
-             | <i class="bi bi-trash defense"></i>
+            <i class="bi bi-trash defense"></i>
         <% end %>
+    <% end %>
+
+     <% if eye %> 
+        <%= link_to eye do %>
+            <i class="bi bi-eye eye"></i>
+        <% end%>
     <% end %>
 </div>

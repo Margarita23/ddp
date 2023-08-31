@@ -1,10 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
+<%= render partial: "/shared/icon_links_btns", locals: { back: teachers_path, edit: edit_teacher_path(@teacher), delete: @teacher, eye: false } %>
+
 <%= render @teacher %>
-
-<div>
-  <%= link_to "Edit this teacher", edit_teacher_path(@teacher) %> |
-  <%= link_to "Back to teachers", teachers_path %>
-
-  <%= button_to "Destroy this teacher", @teacher, method: :delete %>
-</div>

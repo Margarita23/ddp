@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render partial: "/shared/back_edit_trash_btns", locals: { back: defense_process_path(@defense_process.id), edit: edit_defense_process_group_path, delete: defense_process_group_path } %>
+<%= render partial: "/shared/icon_links_btns", locals: { back: defense_process_path(@defense_process.id), edit: edit_defense_process_group_path, delete: defense_process_group_path, eye: false } %>
 
 <%= render @group %>
 
@@ -25,7 +25,14 @@
 
       <div class="field">
         <%= form.label "Керівник" %><br />
-        <%= form.text_field :leader, class: "form-control" %>
+        <div class="from-list">
+          <div class="btn btn-outline-secondary btn_enter-manually">Вписати керівника вручну</div>
+          <%= form.select(:teacher_id, [""] + @teachers.map { |teacher| [ "#{teacher.last_name} #{teacher.first_name} #{teacher.patronymic}", teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
+        </div>
+        <div class="manual">
+          <div class="btn btn-outline-secondary btn_enter-from-list">Вибрати керівника зі списку викладачів</div>
+          <%= form.text_field :leader, class: "form-control teacher_enter-manually" %>
+        </div>
       </div>
 
       <div class="field">
@@ -41,33 +48,38 @@
 </div>
 
 <div class="student__list">
-  <h1>Список студентів</h1>
 
-  <table>
-    <tr>
-      <th></th>
-      <th>ПІБ</th>
-      <th>Тема диплому</th>
-      <th>Керівник</th>
-      <th>Дата захисту</th>
-      <th></th>
-    </tr>
-    <% @group.students.each do |student| %>
-    <tr>
-      <td><%= @group.students.index(student) + 1 %></td>
-      <td><%= student.full_name %></td>
-      <td><%= student.theme %></td>
-      <td><%= student.leader %></td>
-      <td><%= student.date %></td>
-      <td>
-        <%= link_to student_path(student.id), method: :get  do %>
-          <i class="bi bi-eye defense"></i>
-        <% end %>
-      </td>
-    </tr>
+  <% if(@group.students.size != 0) %>
+  
+    <h1>Список студентів</h1>
+
+    <table>
+      <tr>
+        <th></th>
+        <th>ПІБ</th>
+        <th>Тема диплому</th>
+        <th>Керівник</th>
+        <th>Дата захисту</th>
+        <th></th>
+      </tr>
+      <% @group.students.each do |student| %>
+      <tr>
+        <td><%= @group.students.index(student) + 1 %></td>
+        <td><%= student.full_name %></td>
+        <td><%= student.theme %></td>
+        <td><%= student.leader %></td>
+        <td><%= student.date %></td>
+        <td>
+          <%= link_to student_path(student.id), method: :get  do %>
+            <i class="bi bi-eye defense"></i>
+          <% end %>
+        </td>
+      </tr>
+        
+      <% end %>
       
-    <% end %>
-    
-  </table>
+    </table>
+
+  <% end %>
 
 </div>

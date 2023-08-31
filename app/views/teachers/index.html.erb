@@ -1,14 +1,42 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Teachers</h1>
+<%= render partial: "/shared/icon_links_btns", locals: { back: :back, edit: false, delete: false, eye: false } %>
 
-<div id="teachers">
-  <% @teachers.each do |teacher| %>
-    <%= render teacher %>
-    <p>
-      <%= link_to "Show this teacher", teacher %>
-    </p>
+<div class="student__list" id="teachers">
+
+  <% if(@teachers.size != 0) %>
+
+    <h1>Список викладачів</h1>
+
+    <table>
+      <tr>
+        <th></th>
+        <th>ПІБ</th>
+        <th>Науковий ступінь</th>
+        <th>Посада</th>
+        <th>Чи член комісії</th>
+        <th></th>
+      </tr>
+      <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= @teachers.index(teacher) + 1 %></td>
+        <td><%= teacher.last_name %>  <%= teacher.first_name %> <%= teacher.patronymic %></td>
+        <td><%= teacher.academic_status %></td>
+        <td><%= teacher.position %></td>
+        <td><%= teacher.is_leader %></td>
+        <td>
+          <%= link_to teacher, method: :get  do %>
+            <i class="bi bi-eye defense"></i>
+          <% end %>
+        </td>
+      </tr>
+        
+      <% end %>
+      
+    </table>
+
   <% end %>
+
 </div>
 
-<%= link_to "New teacher", new_teacher_path %>
+<%= link_to "New teacher", new_teacher_path, class: "btn btn-outline-success btn-teacher" %>

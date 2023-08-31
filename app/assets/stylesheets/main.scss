@@ -8,6 +8,21 @@
     margin-bottom: 20px;
 }
 
+.btn-container {
+    a {
+        text-decoration: none;
+    }
+
+    .bi {
+        font-size: 25px;
+        margin: 0px 10px 0px 10px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
 footer {
     text-align: center;
     position: fixed;

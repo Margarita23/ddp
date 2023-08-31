@@ -11,7 +11,38 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="form_container">
+    <div class="field">
+      <%= form.label "Ім'я" %><br />
+      <%= form.text_field :first_name, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Прізвище" %><br />
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "По-батькові" %><br />
+      <%= form.text_field :patronymic, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Вчений ступінь" %><br />
+      <%= form.text_field :academic_status, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Посада" %><br />
+      <%= form.text_field :position, class: "form-control" %>
+    </div>
+
+    <div class="field form-check">
+      <%= form.label "Член комісії?", class: "form-check-label" %>
+      <%= form.check_box :is_leader, class: "form-check-input" %>
+    </div>
+
+    <%= form.submit "Додати студента", class: "btn btn-success" %>
   </div>
+
 <% end %>

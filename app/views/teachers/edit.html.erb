@@ -1,10 +1,5 @@
+<%= render partial: "/shared/icon_links_btns", locals: { back: teacher_path, edit: false, delete: false, eye: @teacher } %>
+
 <h1>Editing teacher</h1>
 
 <%= render "form", teacher: @teacher %>
-
-<br>
-
-<div>
-  <%= link_to "Show this teacher", @teacher %> |
-  <%= link_to "Back to teachers", teachers_path %>
-</div>
