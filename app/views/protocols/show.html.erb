@@ -4,6 +4,10 @@
         <p><b>ПРОТОКОЛ № </b><%= 1 %> від <%= @student.date.strftime("%d") %><%= t('month.' + @student.date.strftime("%m")) %> <%= @student.date.strftime("%Y") %> року </p>
         <p><b>Засідання екзаменаційної комісії №</b> ___</p><br />
         <p></p>
-        <p>ступінь вищої освіти ____</p>
+        <p>ступінь вищої освіти <%= @student.get_group.degree %></p>
+        <p>спеціальність <%= @student.get_group.specialty_code %> <%= @student.get_group.specialization%></p>
+        <p>Кваліфікаційна робота бакалавра</p>
+        <p>студента/ки <%= @student.full_name %></p>
+        <p>На тему: <%= @student.theme %></p>
     </div>
 </div>

@@ -5,6 +5,7 @@ class CreateGroups < ActiveRecord::Migration[7.0]
       t.string :specialization
       t.string :name_number
       t.integer :specialty_code
+      t.string :degree
       t.references :defense_process, null: false, foreign_key: true
 
       t.timestamps

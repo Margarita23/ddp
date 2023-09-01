@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @group = @defense_process.groups.find(params[:id])
   end
 
   # POST /groups or /groups.json
@@ -65,6 +66,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.fetch(:group, {}).permit(:form, :specialization, :name_number, :specialty_code)
+      params.fetch(:group, {}).permit(:form, :specialization, :name_number, :specialty_code, :degree)
     end
 end

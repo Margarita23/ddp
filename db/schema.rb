@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_115654) do
     t.string "specialization"
     t.string "name_number"
     t.integer "specialty_code"
+    t.string "degree"
     t.integer "defense_process_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
