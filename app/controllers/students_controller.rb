@@ -15,7 +15,7 @@ class StudentsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name", template: "students/show", formats: [:html]
+        render pdf: "file_name", template: "students/show", formats: [:html], :encoding => 'UTF-8'
       end
     end
   end
@@ -27,6 +27,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @teachers = Teacher.all
   end
 
   # POST /students or /students.json
@@ -70,12 +71,18 @@ class StudentsController < ApplicationController
 
   #Start
   def create_pdf
-    pdf = WickedPdf.new.pdf_from_string('<!doctype html><html><head></head><body>Привіт</body></html>',
+    pdf_html = ActionController::Base.new.render_to_string(template: 'protocols/show', layout: false)
+    pdf = WickedPdf.new.pdf_from_string(pdf_html,
       :encoding => 'UTF-8',
       :page_size => 'A4',
       :orientation => 'Portrait')
+    # pdf = WickedPdf.new.pdf_from_string('<!doctype html><html><head></head><body>Привіт</body></html>',
+    #   :encoding => 'UTF-8',
+    #   :page_size => 'A4',
+    #   :orientation => 'Portrait')
 
       send_data(pdf, :filename  => 'myPDF', :disposition => 'attachment')
+      
   end
 
   private

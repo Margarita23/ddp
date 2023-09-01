@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'locale/:lang', action: :switch_locale, controller: 'application', as: 'locale'
 
-  # get 'generate_protocol', 
+  resources :protocols, only: [:show]
+
+  get "create_pdf_protocol", action: :create_pdf, controller: 'students'
 
 end

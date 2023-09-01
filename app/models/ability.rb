@@ -11,6 +11,7 @@ class Ability
       
       if !user.new_record?
         can :crud, [DefenseProcess, Group, Student]
+        can :create_pdf, [Student]
       else
         cannot :crud, [DefenseProcess, Group, Student]
       end

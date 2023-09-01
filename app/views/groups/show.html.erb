@@ -63,19 +63,24 @@
         <th></th>
       </tr>
       <% @group.students.each do |student| %>
-      <tr>
-        <td><%= @group.students.index(student) + 1 %></td>
-        <td><%= student.full_name %></td>
-        <td><%= student.theme %></td>
-        <td><%= student.leader %></td>
-        <td><%= student.date %></td>
-        <td>
-          <%= link_to student_path(student.id), method: :get  do %>
-            <i class="bi bi-eye defense"></i>
-          <% end %>
-        </td>
-      </tr>
-        
+        <tr>
+          <td><%= @group.students.index(student) + 1 %></td>
+          <td><%= student.full_name %></td>
+          <td><%= student.theme %></td>
+          <td>
+            <% if student.leader != "" %>
+                <%= student.leader %> <br />
+            <% else %>
+                <%= student.get_teacher_lfp %> <br />
+            <% end %>
+          </td>
+          <td><%= student.date %></td>
+          <td>
+            <%= link_to student_path(student.id), method: :get  do %>
+              <i class="bi bi-eye defense"></i>
+            <% end %>
+          </td>
+        </tr>
       <% end %>
       
     </table>

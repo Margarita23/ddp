@@ -2,11 +2,19 @@
     <p>
         <b>ПІБ</b> : <%= student.full_name %> <br />
         <b>Тема диплому</b> : <%= student.theme %> <br />
-        <b>Керівник</b> : <%= student.leader %> <br />
+        <b>Керівник</b> : 
+        <% if student.leader != "" %>
+            <%= student.leader %> <br />
+        <% else %>
+            <%= student.get_teacher_lfp %> <br />
+        <% end %>
+        
         <b>Дата захисту</b> : <%= student.date %> <br />
         <%= link_to student_path(student.id), method: :get  do %>
             <i class="bi bi-eye defense"></i>
         <% end %>
-        <%= link_to 'DOWNLOAD PDF', student_path(student.id, format: :pdf) %>
+        <%= link_to 'Сформувати протокол', protocol_path(student_id: student.id) %>
+        <%= link_to 'pdf', protocol_path(format: :pdf) %>
+        <%= link_to 'Сформувати протокол в PDF', create_pdf_protocol_path %>
     </p>
 </div>
