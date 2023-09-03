@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :commissions
   resources :teachers
 
   resources :defense_processes do

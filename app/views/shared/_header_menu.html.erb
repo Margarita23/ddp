@@ -6,16 +6,19 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><%= button_to "Створити Захист", new_defense_process_path, { method: :get, class: "btn btn-outline-success" } %></li>
                 <li class="nav-item">
-                    <%= link_to t(:board), board_index_path, {title: "Перейти на сторінку #{:board}", class: "nav-link active", 'aria-current': "page"} %>
+                    <%= link_to t(:board), board_index_path, { title: "Перейти на сторінку #{:board}", class: "nav-link active", 'aria-current': "page" } %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Поточні захисти", defense_processes_path, {title: "Перейти на сторінку 'Поточні захисти'", class: "nav-link",} %>
+                    <%= link_to "Поточні захисти", defense_processes_path, { title: "Перейти на сторінку 'Поточні захисти'", class: "nav-link" } %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Комісії", commissions_path, { title: "Перейти на сторінку 'Комісії'", class: "nav-link" } %>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" title="Перейти на сторінку 'Історія'">Історія</a>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Вчительський склад", teachers_path, {title: "Перейти на сторінку 'Вчительський склад'", class: "nav-link", 'aria-current': "page"} %>
+                    <%= link_to "Вчительський склад", teachers_path, { title: "Перейти на сторінку 'Вчительський склад'", class: "nav-link", 'aria-current': "page" } %>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

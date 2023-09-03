@@ -1,0 +1,33 @@
+<%= form_for @commission, :html => {:class => "Commission"} do |form| %>
+  <% if @commission.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@commission.errors.count, "error") %> prohibited this commission from being saved:</h2>
+
+      <ul>
+        <% @commission.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div>
+    <%= form.label "Члени комісії", style: "display: block" %>
+      <%= form.collection_check_boxes :teacher_ids, Teacher.all, :id, :lfp, { hide_label: true } %>
+
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Commissions</h1>
+
+<div id="commissions">
+  <% @commissions.each do |commission| %>
+    <%= render commission %>
+    <p>
+      <%= link_to "Show this commission", commission %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New commission", new_commission_path %>

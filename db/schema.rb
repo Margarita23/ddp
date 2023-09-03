@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_115654) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_03_130503) do
+  create_table "commission_assignments", force: :cascade do |t|
+    t.integer "teacher_id", null: false
+    t.integer "commission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commission_id"], name: "index_commission_assignments_on_commission_id"
+    t.index ["teacher_id"], name: "index_commission_assignments_on_teacher_id"
+  end
+
+  create_table "commissions", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "defense_processes", force: :cascade do |t|
     t.string "nameID"
     t.datetime "created_at", null: false
@@ -75,6 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_115654) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "commission_assignments", "commissions"
+  add_foreign_key "commission_assignments", "teachers"
   add_foreign_key "defense_processes", "users"
   add_foreign_key "groups", "defense_processes"
   add_foreign_key "protocols", "students"
