@@ -1,12 +1,19 @@
 <div id="<%= dom_id commission %>">
   <p>
-    <strong>Name:</strong>
+    <strong>Назва комісії:</strong>
     <%= commission.name %>
   </p>
 
   <p>
-    <strong>Number:</strong>
+    <strong>Номер комісії:</strong>
     <%= commission.number %>
   </p>
+
+  <div>
+    <strong>Члени комісії:</strong>
+    <% commission.teacher_ids.each do |teacher_id| %>
+      <p><%= Teacher.all.find_by(id: teacher_id).lfp %></p>
+    <% end %>
+  </div>
 
 </div>
