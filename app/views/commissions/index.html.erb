@@ -1,14 +1,42 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Commissions</h1>
+<div class="commission__list field" id="commissions">
 
-<div id="commissions">
-  <% @commissions.each do |commission| %>
-    <%= render commission %>
-    <p>
-      <%= link_to "Show this commission", commission %>
-    </p>
+  <% if(@commissions.size != 0) %>
+
+    <h1>Список комісій  </h1>
+
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Назва комісії</th>
+        <th>Номер комісії</th>
+        <th>Члени комісії</th>
+        <th></th>
+      </tr>
+      <% @commissions.each do |commission| %>
+      <tr>
+        <td><%= @commissions.index(commission) + 1 %></td>
+        <td><%= commission.name %> </td>
+        <td><%= commission.number %></td>
+        <td>
+          <% commission.teacher_ids.each do |teacher_id| %>
+            <p><%= Teacher.all.find_by(id: teacher_id).lfp %></p>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to commission, method: :get  do %>
+            <i class="bi bi-eye defense"></i>
+          <% end %>
+        </td>
+      </tr>
+        
+      <% end %>
+      
+    </table>
+
   <% end %>
+
 </div>
 
-<%= link_to "New commission", new_commission_path %>
+<%= link_to "Нова комісія", new_commission_path, class: "btn btn-outline-success" %>

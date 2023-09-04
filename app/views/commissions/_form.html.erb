@@ -11,34 +11,32 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="field">
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :number, style: "display: block" %>
-    <%= form.number_field :number %>
+    <%= form.number_field :number, class: "form-control" %>
   </div>
 
-  <div>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <%= form.collection_check_boxes(:teacher_ids, Teacher.all, :id, :lfp) do |b| %>
-            <li>
-              <div class="dropdown-item">
-                <%= b.label(:"data-value" => b.value) { b.check_box + ' ' + b.text } %>
-              </div>
-            </li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="field dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Вибрати членів комісії
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <%= form.collection_check_boxes(:teacher_ids, Teacher.all, :id, :lfp) do |b| %>
+        <li>
+          <div class="dropdown-item">
+            <%= b.label(:"data-value" => b.value) { b.check_box + ' ' + b.text } %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="field">
+    <%= form.submit "Зберігти", class: "btn btn-success" %>
   </div>
 <% end %>

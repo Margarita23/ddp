@@ -1,9 +1,5 @@
+<%= render partial: "/shared/icon_links_btns", locals: { back: commissions_path, edit: false, delete: false, eye: false } %>
+
 <h1>Нова комісія</h1>
 
 <%= render "form", commission: @commission %>
-
-<br>
-
-<div>
-  <%= link_to "Back to commissions", commissions_path %>
-</div>

@@ -1,10 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
+<%= render partial: "/shared/icon_links_btns", locals: { back: commissions_path, edit: edit_commission_path(@commission), delete: @commission, eye: false } %>
+
 <%= render @commission %>
-
-<div>
-  <%= link_to "Edit this commission", edit_commission_path(@commission) %> |
-  <%= link_to "Back to commissions", commissions_path %>
-
-  <%= button_to "Destroy this commission", @commission, method: :delete %>
-</div>
