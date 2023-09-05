@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_03_130503) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_115428) do
   create_table "commission_assignments", force: :cascade do |t|
     t.integer "teacher_id", null: false
     t.integer "commission_id", null: false
@@ -44,6 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_130503) do
     t.integer "defense_process_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "commission_id"
+    t.index ["commission_id"], name: "index_groups_on_commission_id"
     t.index ["defense_process_id"], name: "index_groups_on_defense_process_id"
   end
 
@@ -63,6 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_130503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "teacher_id", null: false
+    t.integer "commission_id"
+    t.index ["commission_id"], name: "index_students_on_commission_id"
     t.index ["group_id"], name: "index_students_on_group_id"
     t.index ["teacher_id"], name: "index_students_on_teacher_id"
   end
@@ -94,8 +98,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_130503) do
   add_foreign_key "commission_assignments", "commissions"
   add_foreign_key "commission_assignments", "teachers"
   add_foreign_key "defense_processes", "users"
+  add_foreign_key "groups", "commissions"
   add_foreign_key "groups", "defense_processes"
   add_foreign_key "protocols", "students"
+  add_foreign_key "students", "commissions"
   add_foreign_key "students", "groups"
   add_foreign_key "students", "teachers"
 end

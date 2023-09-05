@@ -16,7 +16,9 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    @group = @defense_process.groups.find(params[:id])
+    # @group = @defense_process.groups.find(params[:id])
+    puts "!!!!!!!!!"
+    puts @group.commission_id
   end
 
   # POST /groups or /groups.json
@@ -37,6 +39,7 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
+    puts @group.commission_id
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to defense_process_group_url(@defense_process.id, @group), notice: "Group was successfully updated." }
@@ -61,11 +64,12 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      # @group = Group.find(params[:id])
+      @group = @defense_process.groups.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.fetch(:group, {}).permit(:form, :specialization, :name_number, :specialty_code, :degree)
+      params.fetch(:group, {}).permit(:form, :specialization, :name_number, :specialty_code, :degree, :commission_id)
     end
 end
