@@ -1,6 +1,11 @@
 .protocols__container {
     font-size: 24px;
     font-family: "Times New Roman";
+
+    .underline {
+        border-bottom: 1px solid black;
+    }
+    
     .protocols__wrapper {
         font-weight: bold;
         text-align: center;
@@ -74,12 +79,20 @@
     .materials__info {
         .mentor__title {
             text-align: left;
-        }  
+        }
+
+        .protocol_row_1 {
+            .title {
+                min-width: 420px;
+            }
+        }
+
+        .protocol_row {
+            .text {
+                text-align: left;
+            }
+        }
+
     }
 
-    
-
-    
-
-    
 }
