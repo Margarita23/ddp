@@ -5,4 +5,81 @@
         font-weight: bold;
         text-align: center;
     }
+
+    .specification_pos-status-patro-init::after {
+        content: "(посада, науковий ступінь, вчене звання, прізвище, ініціали)";
+        display: inline-block;
+        position: absolute;
+        font-size: 14px;
+        bottom: -20px;
+        left: 50%;
+    }
+
+    .protocol_row {
+        text-align: left;
+        display: flex;
+        position: relative;
+
+        .title {
+            flex: 0 1 auto;
+            align-self: auto;
+            min-width: 300px;
+        }
+
+        .info {
+            border-bottom: 1px solid black;
+            flex: 2 1 auto;
+            align-self: auto;
+        }
+    }
+
+    .group__info {
+        .title {
+            min-width: 300px;
+        }
+    }
+
+    .student__info {
+        .title {
+            min-width: 150px;
+        }
+    }
+
+    .commission__info {
+        .commission__title {
+            text-align: center;
+        }
+        .title {
+            min-width: 150px;
+        }
+
+        #leader_info {
+            position: relative;
+        }
+
+        #leader_info::after {
+            content: "(науковий ступінь, вчене звання, посада, прізвище, ім’я, по батькові)";
+            display: inline-block;
+            position: absolute;
+            font-size: 14px;
+        }
+    }
+
+    .mentor__info {
+        .mentor__title {
+            text-align: center;
+        }  
+    }
+
+    .materials__info {
+        .mentor__title {
+            text-align: left;
+        }  
+    }
+
+    
+
+    
+
+    
 }

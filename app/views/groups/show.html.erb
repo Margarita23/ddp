@@ -26,12 +26,7 @@
       <div class="field">
         <%= form.label "Керівник" %><br />
         <div class="from-list">
-          <div class="btn btn-outline-secondary btn_enter-manually">Вписати керівника вручну</div>
           <%= form.select(:teacher_id, [""] + @teachers.map { |teacher| [ teacher.lfp, teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
-        </div>
-        <div class="manual">
-          <div class="btn btn-outline-secondary btn_enter-from-list">Вибрати керівника зі списку викладачів</div>
-          <%= form.text_field :leader, class: "form-control teacher_enter-manually" %>
         </div>
       </div>
 
@@ -68,11 +63,7 @@
           <td><%= student.full_name %></td>
           <td><%= student.theme %></td>
           <td>
-            <% if student.leader != "" %>
-                <%= student.leader %> <br />
-            <% else %>
-                <%= student.get_teacher_lfp %> <br />
-            <% end %>
+            <%= student.get_teacher_lfp %> <br />
           </td>
           <td><%= student.date %></td>
           <td>

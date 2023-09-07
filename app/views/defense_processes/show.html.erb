@@ -32,6 +32,11 @@
         <%= form.label "Шифр спеціальності" %><br />
         <%= form.text_field :specialty_code, data: { numeric: true }, class: "form-control" %>
       </div>
+      
+      <div class="field">
+        <%= form.label "Спеціальність" %><br />
+        <%= form.text_field :specialty_title, class: "form-control" %>
+      </div>
 
       <div class="field dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

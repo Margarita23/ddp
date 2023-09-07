@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_115428) do
     t.string "specialization"
     t.string "name_number"
     t.integer "specialty_code"
+    t.string "specialty_title"
     t.string "degree"
     t.integer "defense_process_id", null: false
     t.datetime "created_at", null: false
@@ -59,7 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_115428) do
   create_table "students", force: :cascade do |t|
     t.string "full_name"
     t.string "theme"
-    t.string "leader"
     t.date "date"
     t.integer "group_id", null: false
     t.datetime "created_at", null: false

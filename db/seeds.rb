@@ -6,11 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# user = User.new
-# user.email = 'test@example.com'
-# user.encrypted_password = 'password1'
-# user.save!
-
 user = User.create(email: "test@example.com", password: "password1")
 
 teacher1 = Teacher.create(first_name: "Маргарита", last_name: "Андрюхіна", patronymic: "Василівна", academic_status: "асистент", position: "аспірант", is_leader: false);
@@ -27,12 +22,14 @@ commission_assignment = CommissionAssignment.create(teacher_id: teacher1.id, com
 commission_assignment2 = CommissionAssignment.create(teacher_id: teacher2.id, commission_id: commission.id);
 commission_assignment3 = CommissionAssignment.create(teacher_id: teacher3.id, commission_id: commission.id);
 
-
 group = Group.create(
     form: "Денна", 
     specialization: "Інформаційні - управляючі системи та технології",
     name_number: "гр. КН 01-16-М",
     specialty_code: "122",
+    specialty_title: "Комп'ютерні науки",
     degree: "магістр",
     defense_process_id: defense.id,
     commission_id: commission.id);
+
+student = Student.create(full_name: "Почкова Верба Демидівна", theme: "Дуже важлива тема диплому", date: "20.06.2023", group_id: group.id, teacher_id: teacher1.id);

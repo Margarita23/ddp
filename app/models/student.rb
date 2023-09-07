@@ -16,4 +16,24 @@ class Student < ApplicationRecord
     group = Group.find_by(id: self.group_id)
     return group
   end
+
+  def commission_teachers
+    commission_teacher_ids = Commission.all.find_by(id: group_id).teacher_ids
+    teachers_array = Array.new
+    
+    commission_teacher_ids.each do |teacher_id|
+      teachers_array.push(Teacher.all.find_by(id: teacher_id))
+    end
+
+    return teachers_array
+  end
+
+  def leader_teacher
+    Teacher.find_by(id: teacher_id)
+  end
+
+  def leader_teacher_info
+    teacher = leader_teacher
+    return "#{ teacher.academic_status }, #{ teacher.position }, #{ teacher.lfp }"
+  end
 end

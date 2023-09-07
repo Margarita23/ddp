@@ -16,15 +16,11 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    # @group = @defense_process.groups.find(params[:id])
-    puts "!!!!!!!!!"
-    puts @group.commission_id
   end
 
   # POST /groups or /groups.json
   def create
     @group = @defense_process.groups.build(group_params)
-    # @group = Group.new(group_params)
 
     respond_to do |format|
       if @group.save
@@ -39,7 +35,6 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
-    puts @group.commission_id
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to defense_process_group_url(@defense_process.id, @group), notice: "Group was successfully updated." }

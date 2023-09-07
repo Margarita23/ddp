@@ -13,9 +13,4 @@ $( ".btn-create-defense" ).on( "click", function() {
 $( ".btn-create-student" ).on( "click", function() {
   $( ".form_container" ).toggle("slow");
 });
-
-$( ".btn_enter-manually, .btn_enter-from-list" ).on( "click", function() {
-  $( ".manual" ).toggle("slow");
-  $( ".from-list" ).toggle("slow");
-});
   

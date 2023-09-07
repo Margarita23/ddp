@@ -3,12 +3,7 @@
         <b>ПІБ</b> : <%= student.full_name %> <br />
         <b>Тема диплому</b> : <%= student.theme %> <br />
         <b>Керівник</b> : 
-        <% if student.leader != "" %>
-            <%= student.leader %> <br />
-        <% else %>
-            <%= student.get_teacher_lfp %> <br />
-        <% end %>
-        
+        <%= student.get_teacher_lfp %> <br />
         <b>Дата захисту</b> : <%= student.date %> <br />
         <%= link_to student_path(student.id), method: :get  do %>
             <i class="bi bi-eye defense"></i>
