@@ -148,54 +148,46 @@
                 <div class="title">виконав (ла) і захистив (ла)</div>
                 <div class="info specification specification_diploma-type">кваліфікаційну роботу бакалавра</div>
             </div>
+            <div class="protocol_row">
+                <div class="title">з оцінкою за шкалами:</div>
+                <div class="info">___ національною ___ ESTS</div>
+            </div>
+            <div class="protocol_row">
+                <div class="title">2. Присвоїти</div>
+                <div class="info specification specification_lfp"><%= @student.full_name %></div>
+            </div>
+            <div class="protocol_row">
+                <div class="title">ступінь вищої освіти</div>
+                <div class="info"><%= @student.get_group.degree %></div>
+            </div>
+            <div class="protocol_row">
+                <div class="title">за спеціальністю</div>
+                <div class="info specification specification_code"><%= @student.get_group.specialty_code %> <%= @student.get_group.specialty_title %></div>
+            </div>
+            <div class="protocol_row">
+                <div class="title">3. Видати диплом</div>
+                <div class="info specification specification_diploma-version">звичайного зразка</div>
+            </div>
+        </div>
+        <div class="commission__signatures">
+            <div class="protocol_row">
+                <div class="title">Голова ЕК:</div>
+                <div class="info specification specification_fl-name">Борис МОРОЗ</div>
+            </div>
+            
         </div>
 
 
-з оцінкою за шкалами:
-національною
+            Борис МОРОЗ
 
-
-        ESTS
-
-
-2. Присвоїти
-Устіну Артему Юрійовичу
-
-                                     (прізвище, ім’я, по батькові)
-ступінь вищої освіти
-Бакалавр
-
-
-за спеціальністю
-121 Інженерія програмного забезпечення
-                                 (шифр, назва)
-
-
-
-
-3. Видати диплом
-звичайного зразка
-
-                                   ( з відзнакою)
-4. Відзначити, що
-
-
-
-
-Голова ЕК:
-                               Борис МОРОЗ
-
-                            (підпис)                                                                        (ім’я, прізвище)
+                (підпис)                   
 Члени ЕК:
-                                     Наталія ДОРОШ                                          Олена КАВАЦ
+            Наталія ДОРОШ         Олена КАВАЦ
 
 
-                                     Тетяна ШЕМЕТ                                           Маргарита АНДРЮХІНА
+            Тетяна ШЕМЕТ          Маргарита АНДРЮХІНА
 
-
-                                                                                                           
-
-                          (ім’я та прізвище особи, що склала протокол, підпис)
+            (ім’я та прізвище особи, що склала протокол, підпис)
 
     </div>
 </div>

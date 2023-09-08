@@ -51,7 +51,22 @@
     .specification_diploma-type::after {
         content: "(назва атестаційної роботи)";
         left: 50%;
-    } 
+    }
+
+    .specification_code::after {
+        content: "(шифр, назва)";
+        left: 50%;
+    }
+
+    .specification_diploma-version {
+        content: "(з відзнакою)";
+        left: 50%;
+    }
+
+    .specification_fl-name {
+        content: "(ім’я, прізвище)";
+        left: 50%;
+    }
 
     .protocol_row {
         text-align: left;
