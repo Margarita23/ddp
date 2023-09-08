@@ -174,20 +174,20 @@
                 <div class="title">Голова ЕК:</div>
                 <div class="info specification specification_fl-name">Борис МОРОЗ</div>
             </div>
-            
+
+            <div class="commission__wrap">
+                <% @student.commission_teachers.each do |teacher| %>
+                    <div class="sign__wrap">
+                        <div class="sign"></div>
+                        <div class="name"><%= teacher.first_name %> <%= teacher.last_name.upcase %></div>
+                    </div>
+                <% end %>
+            </div>
         </div>
-
-
-            Борис МОРОЗ
-
-                (підпис)                   
+                 
 Члени ЕК:
-            Наталія ДОРОШ         Олена КАВАЦ
 
-
-            Тетяна ШЕМЕТ          Маргарита АНДРЮХІНА
-
-            (ім’я та прізвище особи, що склала протокол, підпис)
+        (ім’я та прізвище особи, що склала протокол, підпис)
 
     </div>
 </div>

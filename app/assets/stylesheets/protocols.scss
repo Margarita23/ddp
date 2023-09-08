@@ -138,4 +138,14 @@
 
     .result__info {}
 
+    .commission__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .sign__wrap {
+            width: 50%;
+        }
+    }
+    
+
 }
