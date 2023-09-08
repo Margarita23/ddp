@@ -11,19 +11,51 @@
         text-align: center;
     }
 
-    .specification_pos-status-patro-init::after {
-        content: "(посада, науковий ступінь, вчене звання, прізвище, ініціали)";
+    .specification {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .specification::after {
         display: inline-block;
         position: absolute;
         font-size: 14px;
         bottom: -20px;
+    }
+
+    .specification_pos-status-patro-init::after {
+        content: "(посада, науковий ступінь, вчене звання, прізвище, ініціали)";
         left: 50%;
     }
+
+    .specification_pos-status-lfp::after {
+        content: "(науковий ступінь, вчене звання, посада, прізвище, ім’я, по батькові)";
+        left: 25%;
+    }
+
+    .specification_lang::after {
+        content: "(вказати мову)";
+        left: 50%;
+    }
+
+    .specification_questions::after {
+        content: "(прізвище й ініціали особи, що поставила запитання, зміст запитання)";
+        left: 25%;
+    }
+
+    .specification_lfp::after {
+        content: "(прізвище та ім’я, по батькові)";
+        left: 25%;
+    }
+
+    .specification_diploma-type::after {
+        content: "(назва атестаційної роботи)";
+        left: 50%;
+    } 
 
     .protocol_row {
         text-align: left;
         display: flex;
-        position: relative;
 
         .title {
             flex: 0 1 auto;
@@ -57,17 +89,6 @@
         .title {
             min-width: 150px;
         }
-
-        #leader_info {
-            position: relative;
-        }
-
-        #leader_info::after {
-            content: "(науковий ступінь, вчене звання, посада, прізвище, ім’я, по батькові)";
-            display: inline-block;
-            position: absolute;
-            font-size: 14px;
-        }
     }
 
     .mentor__info {
@@ -92,7 +113,14 @@
                 text-align: left;
             }
         }
-
     }
+
+    .materials__info {
+        
+    }
+
+    .questions__info {}
+
+    .result__info {}
 
 }

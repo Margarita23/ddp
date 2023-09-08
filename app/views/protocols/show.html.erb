@@ -53,7 +53,7 @@
             <div class="commission__title">ПРИСУТНІ:</div>
             <div class="protocol_row">
                 <div class="title">Голова</div>
-                <div class="info" id="leader_info"><%= @student.teacher.academic_status %>, <%= @student.teacher.position %> <%= @student.teacher.lfp %></div>
+                <div class="info specification specification_pos-status-lfp" id="leader_info"><%= @student.teacher.academic_status %>, <%= @student.teacher.position %> <%= @student.teacher.lfp %></div>
             </div>
             <br />
             <div class="protocol_row">
@@ -72,11 +72,11 @@
             <div class="mentor__title">АТЕСТАЦІЙНУ РОБОТУ ВИКОНАНО:</div>
             <div class="protocol_row">
                 <div class="title">Під керівництвом</div>
-                <div class="info specification_pos-status-patro-init"><%= @student.leader_teacher_info %></div>
+                <div class="info specification specification_pos-status-patro-init"><%= @student.leader_teacher_info %></div>
             </div>
             <div class="protocol_row">
                 <div class="title">З консультацією</div>
-                <div class="info specification_pos-status-patro-init"> </div>
+                <div class="info specification specification_pos-status-patro-init"> </div>
             </div>
             <div class="protocol_row">
                 <div class="title"></div>
@@ -105,67 +105,52 @@
             <div class="protocol_row underline">
                 <div class="text"><br /></div>
             </div>
+            <div class="protocol_row">
+                <div class="title">2. Пояснювальна записка атестаційної роботи на</div>
+                <div class="info">_____сторінках</div>
+            </div>
+            <div class="protocol_row">
+                <div class="title">3. Креслення,презентація на</div>
+                <div class="info">_____аркушах</div>
+            </div>
+            <div class="protocol_row">
+                <div class="title">4. Рецензія</div>
+                <div class="info specification specification_pos-status-lfp"><br /></div>
+            </div>
+            <div class="protocol_row">
+                <div class="title">5. Навчальна карта студента</div> 
+            </div>
+            <div class="protocol_row protocol_row_lang">
+                <div class="title">6. Резюме до роботи</div>
+                <div class="info specification specification_lang">українською мовою</div>
+            </div>
+            <br />
+        </div>
+
+        <div class="questions__info">
+            <div class="protocol_row">
+                <div class="text">Після повідомлення (протягом  15  хв.) про виконану роботу студенту (ці) задані такі запитання: </div>
+            </div>
+            <ol class="questions__list">
+                <li class="specification specification_questions"></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+
+        <div class="result__info">
+            <div class="result__title">УХВАЛИЛИ:</div>
+            <div class="protocol_row">
+                <div class="title">1. Визнати, що студент (ка)</div>
+                <div class="info specification specification_lfp"><%= @student.full_name %></div>
+            </div>
+            <div class="protocol_row">
+                <div class="title">виконав (ла) і захистив (ла)</div>
+                <div class="info specification specification_diploma-type">кваліфікаційну роботу бакалавра</div>
+            </div>
         </div>
 
 
-
-
-
-
-
-
-2. Пояснювальна записка атестаційної роботи на
-   
-сторінках
-3. Креслення,презентація на
-   
-аркушах
-
-
-4. Рецензія
-                                                                   ---
-
-                                                                                         (науковий ступінь, вчене звання, посада, прізвище, ім’я, по батькові)
-5. Навчальна карта студента
-6. Резюме до роботи
-                                    українською
-мовою
-
-                                                                                  (вказати мову)
-                                                                                     
-Після повідомлення (протягом  15  хв.) про виконану роботу студенту (ці) задані такі запитання:
-1.
-Мороз Б. І. – 
-
-
-                                         (прізвище й ініціали особи, що поставила запитання, зміст запитання) 
-
-
-
-2.
-Дорош Н.Л. – Які висновки були зроблені в результаті виконання роботи?
-
-
-3.
-Кавац О. О. – Які складнощі виникли при аналізі результатів?
-
-
-4.
-
-
-5.
-
-
-
-УХВАЛИЛИ:
-1. Визнати, що студент (ка)
-Устін Артем Юрійович
-
-                                                                                                 (прізвище та ім’я, по батькові)
-виконав (ла) і захистив (ла)
-кваліфікаційну роботу бакалавра
-
-                                                                                                                         (назва атестаційної роботи)
 з оцінкою за шкалами:
 національною
 
@@ -173,19 +158,17 @@
         ESTS
 
 
-
-
 2. Присвоїти
 Устіну Артему Юрійовичу
 
-                                                                                                          (прізвище, ім’я, по батькові)
+                                     (прізвище, ім’я, по батькові)
 ступінь вищої освіти
 Бакалавр
 
 
 за спеціальністю
 121 Інженерія програмного забезпечення
-                                                                                                                                                          (шифр, назва)
+                                 (шифр, назва)
 
 
 
@@ -193,16 +176,16 @@
 3. Видати диплом
 звичайного зразка
 
-                                                                                                                        ( з відзнакою)
+                                   ( з відзнакою)
 4. Відзначити, що
 
 
 
 
 Голова ЕК:
-                                                                                Борис МОРОЗ
+                               Борис МОРОЗ
 
-                                                             (підпис)                                                                        (ім’я, прізвище)
+                            (підпис)                                                                        (ім’я, прізвище)
 Члени ЕК:
                                      Наталія ДОРОШ                                          Олена КАВАЦ
 
@@ -212,7 +195,7 @@
 
                                                                                                            
 
-                                                                                          (ім’я та прізвище особи, що склала протокол, підпис)
+                          (ім’я та прізвище особи, що склала протокол, підпис)
 
     </div>
 </div>
