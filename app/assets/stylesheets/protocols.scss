@@ -8,7 +8,7 @@
     
     .protocols__wrapper {
         letter-spacing: 0.5px;
-        margin: 60px 0px 20px 0px;
+        margin: 60px 0px 0px 0px;
 
         .university {
             font-weight: bold;
@@ -55,7 +55,7 @@
     }
 
     .specification_lfp::after {
-        content: "(прізвище та ім’я, по батькові)";
+        content: "(прізвище, ім’я, по батькові)";
         left: 25%;
     }
 
@@ -82,6 +82,7 @@
     .protocol_row {
         text-align: left;
         display: flex;
+        margin-top: 15px;
 
         .title {
             flex: 0 1 auto;
@@ -100,24 +101,32 @@
             border-bottom: 1px solid black;
             flex: 2 1 auto;
             align-self: auto;
+            padding-left: 10px;
+        }
+
+        .info_160px {
+            padding-left: 160px;
         }
     }
 
     .commission__info {
         .commission__title {
             text-align: center;
+            margin-top: 40px;
         }
     }
 
     .mentor__info {
         .mentor__title {
             text-align: center;
+            margin-top: 60px;
         }  
     }
 
     .materials__info {
-        .mentor__title {
+        .materials__title {
             text-align: left;
+            margin-top: 60px;
         }
 
         .protocol_row_1 {

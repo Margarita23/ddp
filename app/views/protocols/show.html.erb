@@ -33,7 +33,7 @@
         <div class="student__info">
             <div class="protocol_row">
                 <div class="title title_150px">студента/ки</div>
-                <div class="info"><%= @student.full_name %></div>
+                <div class="info specification specification_lfp"><%= @student.full_name %></div>
             </div>
             <div class="protocol_row">
                 <div class="title title_150px">На тему:</div>
@@ -61,7 +61,7 @@
             <% @student.commission_teachers.each do |teacher| %>
                 <div class="protocol_row">
                     <div class="title"></div>
-                    <div class="info"><%= teacher.academic_status %>, <%= teacher.position %> <%= teacher.lfp %></div>
+                    <div class="info info_160px"><%= teacher.academic_status %>, <%= teacher.position %> <%= teacher.lfp %></div>
                 </div>
             <% end %>
         </div>
