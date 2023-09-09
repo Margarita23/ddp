@@ -7,9 +7,20 @@
     }
     
     .protocols__wrapper {
-        font-weight: bold;
-        text-align: center;
+        letter-spacing: 0.5px;
+        margin: 60px 0px 20px 0px;
+
+        .university {
+            font-weight: bold;
+            text-align: center;
+            margin: 0px 0px 20px 0px;
+        }
+
+        .commission {
+            font-size: 20px;
+        }
     }
+    
 
     .specification {
         position: relative;
@@ -54,16 +65,16 @@
     }
 
     .specification_code::after {
-        content: "(шифр, назва)";
+        content: "(шифр та назва)";
         left: 50%;
     }
 
-    .specification_diploma-version {
+    .specification_diploma-version::after {
         content: "(з відзнакою)";
         left: 50%;
     }
 
-    .specification_fl-name {
+    .specification_fl-name::after  {
         content: "(ім’я, прізвище)";
         left: 50%;
     }
@@ -75,6 +86,13 @@
         .title {
             flex: 0 1 auto;
             align-self: auto;
+        }
+
+        .title_150px {
+            min-width: 150px;
+        }
+    
+        .title_300px {
             min-width: 300px;
         }
 
@@ -85,24 +103,9 @@
         }
     }
 
-    .group__info {
-        .title {
-            min-width: 300px;
-        }
-    }
-
-    .student__info {
-        .title {
-            min-width: 150px;
-        }
-    }
-
     .commission__info {
         .commission__title {
             text-align: center;
-        }
-        .title {
-            min-width: 150px;
         }
     }
 
@@ -138,14 +141,25 @@
 
     .result__info {}
 
-    .commission__wrap {
-        display: flex;
-        flex-wrap: wrap;
-        
-        .sign__wrap {
-            width: 50%;
+    .commission__signatures {
+        .protocol_row .commission__wrap {
+            display: flex;
+            flex-wrap: wrap;
+            border: none;
+            border-bottom: none;
+    
+            .sign__wrap {
+                border-bottom: 1px solid black;
+                flex: 1 1 50%;
+                text-align: right;
+                position: relative;
+            }
+
+            .sign__wrap:last-child::after {
+                content: "(ім’я та прізвище особи, що склала протокол, підпис)";
+                left: 25%;
+            }
         }
     }
-    
 
 }

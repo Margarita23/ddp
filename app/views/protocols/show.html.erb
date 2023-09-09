@@ -1,50 +1,48 @@
 <div class="protocols__container">
     <div class="center" style="text-align: center;">
-        <div class="protocols__wrapper"><b>Український державний університет науки і технологій</b></div>
-        <p><b>ПРОТОКОЛ № </b><%= 1 %> від <%= @student.date.strftime("%d") %><%= t('month.' + @student.date.strftime("%m")) %> <%= @student.date.strftime("%Y") %> року </p>
-        <p><b>Засідання екзаменаційної комісії №</b> ___</p><br />
-        <br />
+        <div class="protocols__wrapper">
+            <div class="university"><b>Український державний університет науки і технологій</b></div>
+            <p><b>ПРОТОКОЛ № </b><%= 1 %> від <%= @student.date.strftime("%d") %><%= t('month.' + @student.date.strftime("%m")) %> <%= @student.date.strftime("%Y") %> року </p>
+            <p class="commission"><b>Засідання екзаменаційної комісії №</b> ___</p><br />
+        </div>
+        
         <div class="group__info">
             <div class="protocol_row">
-                <div class="title">ступінь вищої освіти</div>
+                <div class="title title_300px">ступінь вищої освіти</div>
                 <div class="info"><%= @student.get_group.degree %></div>
             </div>
             <div class="protocol_row">
-                <div class="title">спеціальність</div>
-                <div class="info"><%= @student.get_group.specialty_code %> <%= @student.get_group.specialty_title %></div>
+                <div class="title title_300px">спеціальність</div>
+                <div class="info specification specification_code"><%= @student.get_group.specialty_code %> <%= @student.get_group.specialty_title %></div>
             </div>
             <% if @student.get_group.specialization != "" %>
                 <div class="protocol_row">
-                    <div class="title"></div>
                     <div class="info">спеціалізація «<%= @student.get_group.specialization %>»</div>
                 </div>
             <% else %>
                 <div class="protocol_row">
-                    <div class="title" style="border-bottom: 1px solid black;"></div>
                     <div class="info"><br /></div>
                 </div>
             <% end %>
             <div class="protocol_row">
-                <div class="title"></div>
-                <div class="info">Кваліфікаційна робота <span style="text-transform: lowercase;"><%= @student.get_group.degree %>a</span></div>
+                <div class="title title_150px"></div>
+                <div class="info specification specification_diploma-type">Кваліфікаційна робота <span style="text-transform: lowercase;"><%= @student.get_group.degree %>a</span></div>
             </div>
         </div>
 
         <div class="student__info">
             <div class="protocol_row">
-                <div class="title">студента/ки</div>
+                <div class="title title_150px">студента/ки</div>
                 <div class="info"><%= @student.full_name %></div>
             </div>
             <div class="protocol_row">
-                <div class="title">На тему:</div>
+                <div class="title title_150px">На тему:</div>
                 <div class="info"><%= @student.theme %></div>
             </div>
             <div class="protocol_row">
-                <div class="title" style="border-bottom: 1px solid black;"></div>
                 <div class="info"><br /></div>
             </div>
             <div class="protocol_row">
-                <div class="title" style="border-bottom: 1px solid black;"></div>
                 <div class="info"><br /></div>
             </div>
         </div>
@@ -52,12 +50,12 @@
         <div class="commission__info">
             <div class="commission__title">ПРИСУТНІ:</div>
             <div class="protocol_row">
-                <div class="title">Голова</div>
+                <div class="title title_150px">Голова</div>
                 <div class="info specification specification_pos-status-lfp" id="leader_info"><%= @student.teacher.academic_status %>, <%= @student.teacher.position %> <%= @student.teacher.lfp %></div>
             </div>
             <br />
             <div class="protocol_row">
-                <div class="title">Члени ЕК</div>
+                <div class="title title_150px">Члени ЕК</div>
                 <div class="info"></div>
             </div>
             <% @student.commission_teachers.each do |teacher| %>
@@ -169,25 +167,24 @@
                 <div class="info specification specification_diploma-version">звичайного зразка</div>
             </div>
         </div>
+
         <div class="commission__signatures">
             <div class="protocol_row">
                 <div class="title">Голова ЕК:</div>
                 <div class="info specification specification_fl-name">Борис МОРОЗ</div>
             </div>
 
-            <div class="commission__wrap">
-                <% @student.commission_teachers.each do |teacher| %>
-                    <div class="sign__wrap">
-                        <div class="sign"></div>
-                        <div class="name"><%= teacher.first_name %> <%= teacher.last_name.upcase %></div>
-                    </div>
-                <% end %>
+            <div class="protocol_row">
+                <div class="title">Члени ЕК:</div>
+                <div class="info commission__wrap">
+                    <% @student.commission_teachers.each do |teacher| %>
+                        <div class="sign__wrap specification">
+                            <div class="sign"></div>
+                            <div class="name"><%= teacher.first_name %> <%= teacher.last_name.upcase %></div>
+                        </div>
+                    <% end %>  
+                </div>
             </div>
         </div>
-                 
-Члени ЕК:
-
-        (ім’я та прізвище особи, що склала протокол, підпис)
-
     </div>
 </div>
