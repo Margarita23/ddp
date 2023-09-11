@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @diploma %>
+
+<div>
+  <%= link_to "Edit this diploma", edit_diploma_path(@diploma) %> |
+  <%= link_to "Back to diplomas", diplomas_path %>
+
+  <%= button_to "Destroy this diploma", @diploma, method: :delete %>
+</div>

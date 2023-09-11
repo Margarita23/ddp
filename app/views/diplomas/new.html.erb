@@ -1,0 +1,11 @@
+<%= render partial: "/shared/icon_links_btns", locals: { back: :back, edit: false, delete: false, eye: false } %>
+
+<h1>New diploma</h1>
+
+<%= render "form", diploma: @diploma %>
+
+<br>
+
+<div>
+  <%= link_to "Back to diplomas", diplomas_path %>
+</div>

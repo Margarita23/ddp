@@ -4,6 +4,8 @@
 
 <%= render @student %>
 
+<%= link_to "Створити диплом", new_diploma_path(student_id: @student.id), class: "btn btn-outline-primary" %>
+
 <div>
   <%= link_to "Open list of students", students_path %>
 </div>

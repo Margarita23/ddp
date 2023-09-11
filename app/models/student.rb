@@ -2,6 +2,7 @@ class Student < ApplicationRecord
   belongs_to :group
   belongs_to :teacher
   has_one :protocol, dependent: :destroy
+  has_one :diploma, dependent: :destroy
 
   def get_teacher_lfp
     teacher = Teacher.find_by(id: self.teacher_id)

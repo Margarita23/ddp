@@ -1,0 +1,47 @@
+<%= form_with(model: diploma) do |form| %>
+  <% if diploma.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(diploma.errors.count, "error") %> prohibited this diploma from being saved:</h2>
+
+      <ul>
+        <% diploma.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :theme, style: "display: block" %>
+    <%= form.text_field :theme, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :pages, style: "display: block" %>
+    <%= form.number_field :pages, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :presentation, style: "display: block" %>
+    <%= form.number_field :presentation, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :language, style: "display: block" %>
+    <%= form.text_field :language, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :mark, style: "display: block" %>
+    <%= form.number_field :mark, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :sample_type, style: "display: block" %>
+    <%= form.text_field :sample_type, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit "Зберігти", class: "btn btn-success" %>
+  </div>
+<% end %>
