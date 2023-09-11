@@ -36,7 +36,7 @@
 
     .specification_pos-status-patro-init::after {
         content: "(посада, науковий ступінь, вчене звання, прізвище, ініціали)";
-        left: 50%;
+        left: 25%;
     }
 
     .specification_pos-status-lfp::after {
@@ -91,6 +91,10 @@
 
         .title_150px {
             min-width: 150px;
+        }
+
+        .title_200px {
+            min-width: 200px;
         }
     
         .title_300px {
