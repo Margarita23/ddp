@@ -10,10 +10,10 @@ class Ability
       alias_action :create, :read, :update, :destroy, to: :crud
       
       if !user.new_record?
-        can :crud, [DefenseProcess, Group, Student]
+        can :crud, [DefenseProcess, Group, Student, Diploma]
         can :create_pdf, [Student]
       else
-        cannot :crud, [DefenseProcess, Group, Student]
+        cannot :crud, [DefenseProcess, Group, Student, Diploma]
       end
     # Define abilities for the user here. For example:
     #

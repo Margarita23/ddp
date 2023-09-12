@@ -5,6 +5,14 @@
         <b>Керівник</b> : 
         <%= student.get_teacher_lfp %> <br />
         <b>Дата захисту</b> : <%= student.date %> <br />
+        <div class="diploma__container">
+            <h4>Інформація про диплом</h4>
+
+          <div>
+            <%= render student.diploma %>
+          </div>
+
+        </div>
         <%= link_to student_path(student.id), method: :get  do %>
             <i class="bi bi-eye defense"></i>
         <% end %>

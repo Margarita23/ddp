@@ -2,15 +2,14 @@ class StudentsController < ApplicationController
   load_and_authorize_resource
   before_action :set_student, only: %i[ show edit update destroy ]
 
-  # GET /students or /students.json
   def index
     @students = Student.all
   end
 
-  # GET /students/1 or /students/1.json
   def show
     # create_pdf
-    # @student = scope.find(params[:id])
+    
+    @diploma = @student.diploma
 
     respond_to do |format|
       format.html
@@ -20,23 +19,23 @@ class StudentsController < ApplicationController
     end
   end
 
-  # GET /students/new
   def new
     @student = Student.new
+    @diploma = @student.build_diploma(params[:diploma])
   end
 
-  # GET /students/1/edit
   def edit
     @teachers = Teacher.all
   end
 
-  # POST /students or /students.json
   def create
     @student = Student.new(student_params)
     @student.group_id = params[:group_id]
 
     respond_to do |format|
       if @student.save
+        @diploma = @student.create_diploma(params[:diploma])
+
         format.html { redirect_back fallback_location: root_path, notice: "Student was successfully created." }
         format.json { render :show, status: :created, location: @student }
       else
@@ -46,8 +45,8 @@ class StudentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /students/1 or /students/1.json
   def update
+    @student.diploma = Diploma.new(params[:diploma])
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to student_url(@student), notice: "Student was successfully updated." }
@@ -59,7 +58,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  # DELETE /students/1 or /students/1.json
   def destroy
     @student.destroy
 
@@ -86,13 +84,13 @@ class StudentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_student
       @student = Student.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def student_params
-      params.fetch(:student, {}).permit(:full_name, :theme, :date, :teacher_id, :commission_id)
+      params.fetch(:student, [:diploma]).permit(:full_name, :theme, :date, :teacher_id, :commission_id, diploma_attributes: [:theme, :pages, :presentation, :language, :student_id, :mark, :sample_type])
     end
+
 end

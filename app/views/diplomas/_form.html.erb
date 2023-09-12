@@ -1,4 +1,4 @@
-<%= form_with(model: diploma) do |form| %>
+<%= form_with(model: diploma, student_id: params[:student_id]) do |form| %>
   <% if diploma.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(diploma.errors.count, "error") %> prohibited this diploma from being saved:</h2>

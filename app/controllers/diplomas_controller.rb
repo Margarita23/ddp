@@ -1,4 +1,5 @@
 class DiplomasController < ApplicationController
+  load_and_authorize_resource :diploma
   before_action :set_diploma, only: %i[ show edit update destroy ]
 
   def index
@@ -9,7 +10,7 @@ class DiplomasController < ApplicationController
   end
 
   def new
-    @diploma = Diploma.new(student_id: params[:student_id])
+    @diploma = Diploma.new({student_id: params[:student_id]})
   end
 
   def edit

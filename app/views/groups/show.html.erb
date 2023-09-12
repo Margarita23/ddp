@@ -35,6 +35,47 @@
         <%= form.date_field :date, as: :date, value: form.object.try(:strftime,"%m/%d/%Y"), class: "form-control" %>
       </div>
 
+      <div class="diploma__container">
+        <h2>Інформація про диплом</h2>
+
+        <%= form.fields_for :diploma do |diploma_f| %>
+
+          <div>
+            <%= diploma_f.label :theme, style: "display: block" %>
+            <%= diploma_f.text_field :theme, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= diploma_f.label :pages, style: "display: block" %>
+            <%= diploma_f.number_field :pages, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= diploma_f.label :presentation, style: "display: block" %>
+            <%= diploma_f.number_field :presentation, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= diploma_f.label :language, style: "display: block" %>
+            <%= diploma_f.text_field :language, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= diploma_f.label :mark, style: "display: block" %>
+            <%= diploma_f.number_field :mark, class: "form-control" %>
+          </div>
+
+          <div>
+            <%= diploma_f.label :sample_type, style: "display: block" %>
+            <%= diploma_f.text_field :sample_type, class: "form-control" %>
+          </div>
+        
+        <% end %>
+
+      </div>
+
+          
+
         <%= form.submit "Додати студента", class: "btn btn-success" %>
       </div>
     <% end %>
