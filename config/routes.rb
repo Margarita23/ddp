@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :diplomas
+  # resources :diplomas
   resources :commissions
   resources :teachers
 

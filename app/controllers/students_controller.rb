@@ -59,10 +59,13 @@ class StudentsController < ApplicationController
   end
 
   def destroy
+    defense_process_id = @student.get_group.defense_process_id
+    group_id = @student.group_id
+
     @student.destroy
 
     respond_to do |format|
-      format.html { redirect_to students_url, notice: "Student was successfully destroyed." }
+      format.html { redirect_to defense_process_group_path(defense_process_id, group_id), notice: "Student was successfully destroyed." }
       format.json { head :no_content }
     end
   end

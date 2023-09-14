@@ -6,6 +6,13 @@
         border-bottom: 1px solid black;
     }
 
+    .text_underline {
+        text-decoration: underline;
+        line-height: 40px;
+        text-underline-offset: 8px;
+        text-align: justify;
+    }
+
     .inner {
         padding: 0px 20px 0px 20px;
         margin: 0px 40px 0px 40px;
