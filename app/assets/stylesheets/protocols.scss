@@ -5,6 +5,17 @@
     .underline {
         border-bottom: 1px solid black;
     }
+
+    .inner {
+        padding: 0px 20px 0px 20px;
+        margin: 0px 40px 0px 40px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .inner__20px {
+        margin: 0px 20px 0px 20px;
+    }
     
     .protocols__wrapper {
         letter-spacing: 0.5px;
@@ -21,7 +32,6 @@
         }
     }
     
-
     .specification {
         position: relative;
         margin-bottom: 20px;
@@ -106,6 +116,11 @@
             flex: 2 1 auto;
             align-self: auto;
             padding-left: 10px;
+
+            &.not_underline {
+                border-bottom: none;
+                display: flex;
+            }
         }
 
         .info_160px {

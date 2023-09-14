@@ -2,7 +2,7 @@
     <div class="center" style="text-align: center;">
         <div class="protocols__wrapper">
             <div class="university"><b>Український державний університет науки і технологій</b></div>
-            <p><b>ПРОТОКОЛ № </b><%= 1 %> від <%= @student.date.strftime("%d") %><%= t('month.' + @student.date.strftime("%m")) %> <%= @student.date.strftime("%Y") %> року </p>
+            <p><b>ПРОТОКОЛ № </b><span class="underline inner inner__20px"><%= 1 %></span> від <span class="underline inner inner__20px"><%= @student.date.strftime("%d") %> <%= t('month.' + @student.date.strftime("%m")) %> <%= @student.date.strftime("%Y") %></span> року </p>
             <p class="commission"><b>Засідання екзаменаційної комісії №</b> ___</p><br />
         </div>
         
@@ -120,7 +120,7 @@
             </div>
             <div class="protocol_row protocol_row_lang">
                 <div class="title">6. Резюме до роботи</div>
-                <div class="info specification specification_lang">українською мовою</div>
+                <div class="info specification specification_lang"><%= @student.diploma.language %> мовою</div>
             </div>
             <br />
         </div>
@@ -148,7 +148,7 @@
             </div>
             <div class="protocol_row">
                 <div class="title">з оцінкою за шкалами:</div>
-                <div class="info">___ національною ___ ESTS</div>
+                <div class="info not_underline"> національною <span class="underline inner"><%= @student.diploma.mark %></span> ESTS <span class="underline inner"></span></div>
             </div>
             <div class="protocol_row">
                 <div class="title">2. Присвоїти</div>
