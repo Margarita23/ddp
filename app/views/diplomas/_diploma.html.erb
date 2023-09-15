@@ -34,4 +34,19 @@
     <%= diploma.sample_type %>
   </p>
 
+  <ul>
+    <% diploma.questions.each do |question| %>
+      <li><%= question.teacher %></li>
+
+      
+    <% end %>
+  </ul>
+
+  <button class="btn btn-outline-success btn__add">Додати питання</button>
+  <button class="btn btn-outline-secondary btn__reset hidden">Не додавати питання</button>
+
+  <div class="form_container hidden">
+    <%= render "questions/form", question: @question %>
+  </div>
+
 </div>

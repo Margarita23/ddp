@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
     # create_pdf
     
     @diploma = @student.diploma
+    @question = Question.new
 
     respond_to do |format|
       format.html

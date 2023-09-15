@@ -1,0 +1,29 @@
+<%= form_with(model: question) do |form| %>
+  <% if question.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+        <% question.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= form.label "Хто задав питання?" %><br />
+      <div class="from-list">
+        <%= form.select(:teacher, [""] + Teacher.all.map { |teacher| [ "#{teacher.last_name} #{teacher.first_name} #{teacher.patronymic}", teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
+      </div>
+    </div>
+
+  <div class="field">
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_field :text, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit "Зберігти", class: "btn btn-success" %>
+  </div>
+<% end %>

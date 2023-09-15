@@ -13,4 +13,18 @@ $( ".btn-create-defense" ).on( "click", function() {
 $( ".btn-create-student" ).on( "click", function() {
   $( ".form_container" ).toggle("slow");
 });
+
+$( ".btn__add" ).on( "click", function() {
+  $( ".form_container" ).toggle("slow");
+  $( ".btn__reset, .btn__add" ).toggle("slow");
+});
+
+$( ".btn__reset" ).on( "click", function() {
+  $( ".form_container" ).toggle("slow");
+  $( ".btn__reset, .btn__add" ).toggle("slow");
+});
+
+
+
+
   
