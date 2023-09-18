@@ -23,6 +23,9 @@
     <%= form.text_field :text, class: "form-control" %>
   </div>
 
+  <%= form.hidden_field :diploma_id, value: diploma_id %>
+  <%= hidden_field_tag :student_id, student_id %>
+
   <div>
     <%= form.submit "Зберігти", class: "btn btn-success" %>
   </div>
