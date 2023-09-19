@@ -14,7 +14,7 @@
   <div class="field">
       <%= form.label "Хто задав питання?" %><br />
       <div class="from-list">
-        <%= form.select(:teacher, [""] + Teacher.all.map { |teacher| [ "#{teacher.last_name} #{teacher.first_name} #{teacher.patronymic}", teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
+        <%= form.select(:teacher_id, [""] + Teacher.all.map { |teacher| [ "#{teacher.last_name} #{teacher.first_name} #{teacher.patronymic}", teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
       </div>
     </div>
 

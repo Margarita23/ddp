@@ -5,5 +5,9 @@ class Teacher < ApplicationRecord
 
     def lfp
         "#{last_name} #{first_name} #{patronymic}"
-    end 
+    end
+
+    def l_initials
+        "#{last_name} #{first_name[0]}.#{patronymic[0]}."
+    end
 end

@@ -20,11 +20,6 @@
   </p>
 
   <p>
-    <strong>Student:</strong>
-    <%= diploma.student_id %>
-  </p>
-
-  <p>
     <strong>Mark:</strong>
     <%= diploma.mark %>
   </p>
@@ -34,9 +29,14 @@
     <%= diploma.sample_type %>
   </p>
 
+
+  <h4>Питання до диплому</h4>
   <ul>
     <% diploma.questions.each do |question| %>
-      <li><%= question.teacher %></li>
+      <li>
+        <div class="author"><%= Teacher.find(question.teacher_id).l_initials %></div>
+        <div class="question__text"><%= question.text %></div>
+      </li>
     <% end %>
   </ul>
 

@@ -12,7 +12,6 @@ class Group < ApplicationRecord
   end
 
   def commission
-    commission = Commission.all.find_by(id: commission_id)
-    return commission
+    return Commission.find(commission_id)
   end
 end

@@ -1,16 +1,23 @@
 .protocols__container {
     font-size: 24px;
     font-family: "Times New Roman";
+    min-width: 900px;
 
     .underline {
         border-bottom: 1px solid black;
     }
 
+    .text_center {
+        text-align: center;
+    }
+
     .text_underline {
         text-decoration: underline;
         line-height: 40px;
-        text-underline-offset: 8px;
+        text-underline-offset: 12px;
         text-align: justify;
+        border-bottom: 1px solid #000;
+        text-decoration-thickness: 1px;
     }
 
     .inner {
@@ -66,7 +73,7 @@
         left: 50%;
     }
 
-    .specification_questions::after {
+    .specification_questions:first-child::after {
         content: "(прізвище й ініціали особи, що поставила запитання, зміст запитання)";
         left: 25%;
     }
@@ -104,6 +111,7 @@
         .title {
             flex: 0 1 auto;
             align-self: auto;
+            padding-right: 20px;
         }
 
         .title_150px {
@@ -118,6 +126,10 @@
             min-width: 300px;
         }
 
+        .title_550px {
+            min-width: 550px;
+        }
+
         .info {
             border-bottom: 1px solid black;
             flex: 2 1 auto;
@@ -126,6 +138,9 @@
 
             &.not_underline {
                 border-bottom: none;
+            }
+
+            &.flex {
                 display: flex;
             }
         }

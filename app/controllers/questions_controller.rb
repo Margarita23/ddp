@@ -2,11 +2,6 @@ class QuestionsController < ApplicationController
     def create
         @question = Question.new(question_params)
         student_id = params[:student_id]
-        teacher = params[:question][:teacher]
-        puts "!!!!!!!!"
-        puts student_id
-        puts teacher
-        # @question.user_id = current_user.id
 
         if @question.save
             flash[:notice] = "New question was successfully created"
@@ -24,6 +19,6 @@ class QuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.fetch(:question, {}).permit(:teacher, :text, :diploma_id)
+      params.fetch(:question, {}).permit(:teacher_id, :text, :diploma_id)
     end
 end

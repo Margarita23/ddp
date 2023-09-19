@@ -3,7 +3,7 @@
         <div class="protocols__wrapper">
             <div class="university"><b>Український державний університет науки і технологій</b></div>
             <p><b>ПРОТОКОЛ № </b><span class="underline inner inner__20px"><%= 1 %></span> від <span class="underline inner inner__20px"><%= @student.date.strftime("%d") %> <%= t('month.' + @student.date.strftime("%m")) %> <%= @student.date.strftime("%Y") %></span> року </p>
-            <p class="commission"><b>Засідання екзаменаційної комісії №</b> ___</p><br />
+            <p class="commission"><b>Засідання екзаменаційної комісії №</b><span class="underline inner inner__20px"><%= @student.get_group.commission.number %></span></p><br />
         </div>
         
         <div class="group__info">
@@ -98,12 +98,16 @@
                 <div class="text"><br /></div>
             </div>
             <div class="protocol_row">
-                <div class="title">2. Пояснювальна записка атестаційної роботи на</div>
-                <div class="info"><%= @student.diploma.pages %> сторінках</div>
+                <div class="title title_550px">2. Пояснювальна записка атестаційної роботи на</div>
+                <div class="info not_underline">
+                    <span class="underline inner inner__20px"><%= @student.diploma.pages %></span> сторінках
+                </div>
             </div>
             <div class="protocol_row">
-                <div class="title">3. Креслення,презентація на</div>
-                <div class="info"><%= @student.diploma.presentation %> аркушах</div>
+                <div class="title title_550px">3. Креслення,презентація на</div>
+                <div class="info not_underline">
+                    <span class="underline inner inner__20px"><%= @student.diploma.presentation %></span> аркушах
+                </div>
             </div>
             <div class="protocol_row">
                 <div class="title">4. Рецензія</div>
@@ -124,9 +128,14 @@
                 <div class="text">Після повідомлення (протягом  15  хв.) про виконану роботу студенту (ці) задані такі запитання: </div>
             </div>
             <ol class="questions__list">
-                <li class="specification specification_questions"></li>
-                <li></li>
-                <li></li>
+                <% @student.diploma.questions.each do |question| %>
+                    <li class="specification specification_questions">
+                        <div class="question__text text_underline">
+                            <span class="author"><%= Teacher.find(question.teacher_id).l_initials %></span> - 
+                            <%= question.text %>
+                        </div>
+                    </li>
+                <% end %>
             </ol>
         </div>
 
@@ -142,7 +151,7 @@
             </div>
             <div class="protocol_row">
                 <div class="title">з оцінкою за шкалами:</div>
-                <div class="info not_underline"> національною <span class="underline inner"><%= @student.diploma.mark %></span> ESTS <span class="underline inner"></span></div>
+                <div class="info not_underline flex"> національною <span class="underline inner"><%= @student.diploma.mark %></span> ESTS <span class="underline inner"></span></div>
             </div>
             <div class="protocol_row">
                 <div class="title">2. Присвоїти</div>
@@ -165,7 +174,7 @@
         <div class="commission__signatures">
             <div class="protocol_row">
                 <div class="title">Голова ЕК:</div>
-                <div class="info specification specification_fl-name">Борис МОРОЗ</div>
+                <div class="info text_center specification specification_fl-name">Борис МОРОЗ</div>
             </div>
 
             <div class="protocol_row">
