@@ -10,9 +10,11 @@
   </p>
 
   <div>
+    <strong>Голова комісії:</strong>
+    <p><%= Teacher.find(commission.head_id).lfp %></p>
     <strong>Члени комісії:</strong>
     <% commission.teacher_ids.each do |teacher_id| %>
-      <p><%= Teacher.all.find_by(id: teacher_id).lfp %></p>
+      <p><%= Teacher.find(teacher_id).lfp %></p>
     <% end %>
   </div>
 

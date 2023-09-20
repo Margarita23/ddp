@@ -21,6 +21,13 @@
     <%= form.number_field :number, class: "form-control" %>
   </div>
 
+  <div class="field">
+    <%= form.label "Голова комісії" %><br />
+    <div class="from-list">
+      <%= form.select(:head_id, [""] + Teacher.all.map { |teacher| [ teacher.lfp, teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
+    </div>
+  </div>
+
   <div class="field dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Вибрати членів комісії

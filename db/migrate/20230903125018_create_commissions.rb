@@ -3,6 +3,7 @@ class CreateCommissions < ActiveRecord::Migration[7.0]
     create_table :commissions do |t|
       t.string :name
       t.integer :number
+      t.integer :head_id
 
       t.timestamps
     end

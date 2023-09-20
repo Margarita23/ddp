@@ -17,7 +17,7 @@ teacher5 = Teacher.create(first_name: "Павло", last_name: "Мармиза",
 defense = DefenseProcess.create(nameID: 'Захист літо 2023', user_id: user.id);
 defense2 = DefenseProcess.create(nameID: 'Захист зима 2023', user_id: user.id);
 
-commission = Commission.create(name: 'Комісія № 3', number: 3);
+commission = Commission.create(name: 'Комісія № 3', number: 3, head_id: teacher4.id);
 commission_assignment = CommissionAssignment.create(teacher_id: teacher1.id, commission_id: commission.id);
 commission_assignment2 = CommissionAssignment.create(teacher_id: teacher2.id, commission_id: commission.id);
 commission_assignment3 = CommissionAssignment.create(teacher_id: teacher3.id, commission_id: commission.id);

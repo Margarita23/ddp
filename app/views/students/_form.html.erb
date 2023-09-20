@@ -25,7 +25,7 @@
     <div class="field">
       <%= form.label "Керівник" %><br />
       <div class="from-list">
-        <%= form.select(:teacher_id, [""] + @teachers.map { |teacher| [ "#{teacher.last_name} #{teacher.first_name} #{teacher.patronymic}", teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
+        <%= form.select(:teacher_id, [""] + @teachers.map { |teacher| [ teacher.lfp, teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
       </div>
     </div>
 

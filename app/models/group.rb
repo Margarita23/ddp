@@ -3,7 +3,7 @@ class Group < ApplicationRecord
   has_many :students, :dependent => :destroy
 
   def commission_info
-    commission = Commission.all.find_by(id: commission_id)
+    commission = Commission.find(commission_id)
     if !commission.nil?
       "Назва комісії: #{ commission.name }, номер комісії: #{ commission.number }"
     else
@@ -13,5 +13,11 @@ class Group < ApplicationRecord
 
   def commission
     return Commission.find(commission_id)
+  end
+
+  def commission_head
+    commission = Commission.find(commission_id)
+    teacher = Teacher.find(commission.head_id)
+    return teacher
   end
 end

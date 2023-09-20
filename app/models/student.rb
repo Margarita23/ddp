@@ -21,11 +21,11 @@ class Student < ApplicationRecord
   end
 
   def commission_teachers
-    commission_teacher_ids = Commission.all.find_by(id: group_id).teacher_ids
+    commission_teacher_ids = Commission.find(group_id).teacher_ids
     teachers_array = Array.new
     
     commission_teacher_ids.each do |teacher_id|
-      teachers_array.push(Teacher.all.find_by(id: teacher_id))
+      teachers_array.push(Teacher.find(teacher_id))
     end
 
     return teachers_array

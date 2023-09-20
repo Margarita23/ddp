@@ -4,10 +4,14 @@ class Teacher < ApplicationRecord
     has_many :commissions, class_name: 'Commission', through: :commision_assignments
 
     def lfp
-        "#{last_name} #{first_name} #{patronymic}"
+        return "#{last_name} #{first_name} #{patronymic}"
     end
 
     def l_initials
-        "#{last_name} #{first_name[0]}.#{patronymic[0]}."
+        return "#{last_name} #{first_name[0]}.#{patronymic[0]}."
+    end
+
+    def fname_lname_upper
+        return "#{first_name} #{last_name.upcase}"
     end
 end

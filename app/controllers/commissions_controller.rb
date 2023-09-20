@@ -65,6 +65,6 @@ class CommissionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def commission_params
-      params.require(:commission).permit(:name, :number, teacher_ids: [])
+      params.require(:commission).permit(:name, :number, :head_id, teacher_ids: [])
     end
 end

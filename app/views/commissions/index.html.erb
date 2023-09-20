@@ -11,6 +11,7 @@
         <th>#</th>
         <th>Назва комісії</th>
         <th>Номер комісії</th>
+        <th>Голова комісії</th>
         <th>Члени комісії</th>
         <th></th>
       </tr>
@@ -19,9 +20,10 @@
         <td><%= @commissions.index(commission) + 1 %></td>
         <td><%= commission.name %> </td>
         <td><%= commission.number %></td>
+        <td><%= Teacher.find(commission.head_id).lfp %></td>
         <td>
           <% commission.teacher_ids.each do |teacher_id| %>
-            <p><%= Teacher.all.find_by(id: teacher_id).lfp %></p>
+            <p><%= Teacher.find(teacher_id).lfp %></p>
           <% end %>
         </td>
         <td>

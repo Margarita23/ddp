@@ -130,9 +130,8 @@
             <ol class="questions__list">
                 <% @student.diploma.questions.each do |question| %>
                     <li class="specification specification_questions">
-                        <div class="question__text text_underline">
-                            <span class="author"><%= Teacher.find(question.teacher_id).l_initials %></span> - 
-                            <%= question.text %>
+                        <div class="question__text">
+                            <span class="text_underline"><%= Teacher.find(question.teacher_id).l_initials %> - <%= question.text %></span>
                         </div>
                     </li>
                 <% end %>
@@ -174,7 +173,7 @@
         <div class="commission__signatures">
             <div class="protocol_row">
                 <div class="title">Голова ЕК:</div>
-                <div class="info text_center specification specification_fl-name">Борис МОРОЗ</div>
+                <div class="info text_center specification specification_fl-name"><%= @student.get_group.commission_head.fname_lname_upper %></div>
             </div>
 
             <div class="protocol_row">
@@ -183,7 +182,7 @@
                     <% @student.commission_teachers.each do |teacher| %>
                         <div class="sign__wrap specification">
                             <div class="sign"></div>
-                            <div class="name"><%= teacher.first_name %> <%= teacher.last_name.upcase %></div>
+                            <div class="name"><%= teacher.fname_lname_upper %></div>
                         </div>
                     <% end %>  
                 </div>
