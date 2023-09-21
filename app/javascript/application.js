@@ -8,22 +8,24 @@
 
 import './shevchenko.min.js';
 
-async function main() {
+async function declension(student) {
   const input = {
-    gender: 'masculine',
-    givenName: 'Тарас',
-    patronymicName: 'Григорович',
-    familyName: 'Шевченко'
+    // gender: 'masculine',
+    // gender: 'feminine',
+    gender: 'feminine',
+    familyName: student.l_name,
+    givenName: student.f_name,
+    patronymicName: student.patronymic
   };
 
-  let inGenitive = Object.values(await shevchenko.inGenitive(input)).join(' ');
-  let inNominative = Object.values(await shevchenko.inNominative(input)).join(' ');
-  let inDative = Object.values(await shevchenko.inDative(input)).join(' ');
+  let inGenitive = await shevchenko.inGenitive(input);
+  let inNominative = await shevchenko.inNominative(input);
+  let inDative = await shevchenko.inDative(input);
 
   const output = { 
-    inGenitive,
-    inNominative,
-    inDative
+    inGenitive: inGenitive.familyName + " " + inGenitive.givenName + " " + inGenitive.patronymicName,
+    inNominative: inNominative.familyName + " " + inNominative.givenName + " " + inNominative.patronymicName,
+    inDative: inDative.familyName + " " + inDative.givenName + " " + inDative.patronymicName,
    };
 
   // inAblative (орудний)
@@ -37,7 +39,29 @@ async function main() {
   return output;
 }
 
-main().then(r => console.log(r)).catch((error) => console.error(error))
+function a () {
+  let str1 = $( ".info.specification.specification_lfp" ).first().text();
+  let studentArr = str1.split(' ');
+
+  let student = {
+    f_name: studentArr[1], 
+    patronymic: studentArr[2],
+    l_name: studentArr[0]
+  }
+
+  let res = declension(student).then(result => {
+    $( ".info.specification.specification_lfp.genitive" ).html(result.inGenitive);
+    $( ".info.specification.specification_lfp.nominative" ).html(result.inNominative);
+    $( ".info.specification.specification_lfp.dative" ).html(result.inDative);
+
+  }).catch((error) => console.error(error));
+
+  
+
+}
+
+a();
+
 
 
 $( ".btn-create-defense" ).on( "click", function() {
