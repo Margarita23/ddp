@@ -6,6 +6,40 @@
 //= require popper
 //= require bootstrap
 
+import './shevchenko.min.js';
+
+async function main() {
+  const input = {
+    gender: 'masculine',
+    givenName: 'Тарас',
+    patronymicName: 'Григорович',
+    familyName: 'Шевченко'
+  };
+
+  let inGenitive = Object.values(await shevchenko.inGenitive(input)).join(' ');
+  let inNominative = Object.values(await shevchenko.inNominative(input)).join(' ');
+  let inDative = Object.values(await shevchenko.inDative(input)).join(' ');
+
+  const output = { 
+    inGenitive,
+    inNominative,
+    inDative
+   };
+
+  // inAblative (орудний)
+  // inAccusative (знахідний)
+  // inDative (давальний)
+  // inGenitive (родовий відмінок)
+  // inLocative (місцевий)
+  // inNominative (називний)
+  // inVocative (кличний)
+
+  return output;
+}
+
+main().then(r => console.log(r)).catch((error) => console.error(error))
+
+
 $( ".btn-create-defense" ).on( "click", function() {
   $( ".form_container" ).toggle("slow");
 });
