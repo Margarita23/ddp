@@ -18,6 +18,11 @@
     </div>
 
     <div class="field">
+      <%= form.label "Стать" %><br />
+      <%= form.select(:gender, [["Жінка", "feminine"], ["Чоловік", "masculine"]], {selected: student.gender}, { class: "form-select" }) %>
+    </div>
+
+    <div class="field">
       <%= form.label "Тема диплому" %><br />
       <%= form.text_field :theme, class: "form-control" %>
     </div>
@@ -25,7 +30,7 @@
     <div class="field">
       <%= form.label "Керівник" %><br />
       <div class="from-list">
-        <%= form.select(:teacher_id, [""] + @teachers.map { |teacher| [ teacher.lfp, teacher.id ] }, {selected: ""}, { class: "form-select teacher_enter-from-list" }) %>
+        <%= form.select(:teacher_id, [""] + @teachers.map { |teacher| [ teacher.lfp, teacher.id ] }, { selected: student.teacher_id }, { class: "form-select teacher_enter-from-list" }) %>
       </div>
     </div>
 

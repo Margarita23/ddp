@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_105638) do
     t.string "full_name"
     t.string "theme"
     t.date "date"
+    t.string "gender", null: false
     t.integer "group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

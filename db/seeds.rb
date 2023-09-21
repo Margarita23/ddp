@@ -32,6 +32,6 @@ group = Group.create(
     defense_process_id: defense.id,
     commission_id: commission.id);
 
-student = Student.create(full_name: "Почкова Верба Демидівна", theme: "Дуже важлива тема диплому", date: "20.06.2023", group_id: group.id, teacher_id: teacher1.id);
+student = Student.create(full_name: "Почкова Верба Демидівна", theme: "Дуже важлива тема диплому", date: "20.06.2023", gender: "feminine", group_id: group.id, teacher_id: teacher1.id);
 
 diploma = Diploma.create(theme: "Дуже важлива тема диплому", pages: 55, presentation: 15, language: "", mark: 9, sample_type: "звичайного зразка", student_id: student.id);

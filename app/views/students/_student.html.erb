@@ -1,6 +1,7 @@
 <div id="<%= dom_id student %>">
     <p>
         <b>ПІБ</b> : <%= student.full_name %> <br />
+        <b>Стать</b> : <%= student.gender == "feminine" ? "Жінка" : "Чоловік"  %> <br />
         <b>Тема диплому</b> : <%= student.theme %> <br />
         <b>Керівник</b> : 
         <%= student.get_teacher_lfp %> <br />

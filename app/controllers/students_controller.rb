@@ -94,7 +94,7 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.fetch(:student, [:diploma]).permit(:full_name, :theme, :date, :teacher_id, :commission_id, diploma_attributes: [:theme, :pages, :presentation, :language, :student_id, :mark, :sample_type])
+      params.fetch(:student, [:diploma]).permit(:full_name, :theme, :date, :gender, :teacher_id, :commission_id, diploma_attributes: [:theme, :pages, :presentation, :language, :student_id, :mark, :sample_type])
     end
 
 end
