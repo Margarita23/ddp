@@ -8,11 +8,11 @@
 
 user = User.create(email: "test@example.com", password: "password1")
 
-teacher1 = Teacher.create(first_name: "Маргарита", last_name: "Андрюхіна", patronymic: "Василівна", academic_status: "асистент", position: "аспірант", is_leader: false);
-teacher2 = Teacher.create(first_name: "Роман", last_name: "Андрюхін", patronymic: "Павлович", academic_status: "професор", position: "професор", is_leader: false);
-teacher3 = Teacher.create(first_name: "Владислав", last_name: "Шумко", patronymic: "Костянтинович", academic_status: "к.т.н. доц.", position: "доц. каф.", is_leader: false);
-teacher4 = Teacher.create(first_name: "Василь", last_name: "Коркін", patronymic: "Васильович", academic_status: "професор", position: "доц. кав.", is_leader: false);
-teacher5 = Teacher.create(first_name: "Павло", last_name: "Мармиза", patronymic: "Александрович", academic_status: "", position: "ст. викладач", is_leader: false);
+teacher1 = Teacher.create(first_name: "Маргарита", last_name: "Андрюхіна", patronymic: "Василівна", academic_status: "асистент", position: "аспірант");
+teacher2 = Teacher.create(first_name: "Роман", last_name: "Андрюхін", patronymic: "Павлович", academic_status: "професор", position: "професор");
+teacher3 = Teacher.create(first_name: "Владислав", last_name: "Шумко", patronymic: "Костянтинович", academic_status: "к.т.н. доц.", position: "доц. каф.");
+teacher4 = Teacher.create(first_name: "Василь", last_name: "Коркін", patronymic: "Васильович", academic_status: "професор", position: "доц. кав.");
+teacher5 = Teacher.create(first_name: "Павло", last_name: "Мармиза", patronymic: "Александрович", academic_status: "", position: "ст. викладач");
  
 defense = DefenseProcess.create(nameID: 'Захист літо 2023', user_id: user.id);
 defense2 = DefenseProcess.create(nameID: 'Захист зима 2023', user_id: user.id);

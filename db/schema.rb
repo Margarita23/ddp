@@ -101,7 +101,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_105638) do
     t.string "patronymic"
     t.string "academic_status"
     t.string "position"
-    t.boolean "is_leader"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -14,7 +14,6 @@
         <th>ПІБ</th>
         <th>Науковий ступінь</th>
         <th>Посада</th>
-        <th>Чи член комісії</th>
         <th></th>
       </tr>
       <% @teachers.each do |teacher| %>
@@ -23,7 +22,6 @@
         <td><%= teacher.last_name %>  <%= teacher.first_name %> <%= teacher.patronymic %></td>
         <td><%= teacher.academic_status %></td>
         <td><%= teacher.position %></td>
-        <td><%= teacher.is_leader %></td>
         <td>
           <%= link_to teacher, method: :get  do %>
             <i class="bi bi-eye defense"></i>

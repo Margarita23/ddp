@@ -6,7 +6,6 @@ class CreateTeachers < ActiveRecord::Migration[7.0]
       t.string :patronymic
       t.string :academic_status
       t.string :position
-      t.boolean :is_leader
 
       t.timestamps
     end
