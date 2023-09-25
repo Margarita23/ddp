@@ -19,6 +19,11 @@
       </div>
 
       <div class="field">
+        <%= form.label "Стать" %><br />
+        <%= form.select(:gender, [["Жінка", "feminine"], ["Чоловік", "masculine"]], {selected: @student.gender}, { class: "form-select" }) %>
+      </div>
+
+      <div class="field">
         <%= form.label "Тема диплому" %><br />
         <%= form.text_field :theme, class: "form-control" %>
       </div>
