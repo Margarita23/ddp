@@ -2,10 +2,6 @@ class DiplomasController < ApplicationController
   load_and_authorize_resource :diploma
   before_action :set_diploma, only: %i[ show edit update destroy ]
 
-  def index
-    @diplomas = Diploma.all
-  end
-
   def show
   end
 
@@ -27,27 +23,6 @@ class DiplomasController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @diploma.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @diploma.update(diploma_params)
-        format.html { redirect_to diploma_url(@diploma), notice: "Diploma was successfully updated." }
-        format.json { render :show, status: :ok, location: @diploma }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @diploma.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @diploma.destroy
-
-    respond_to do |format|
-      format.html { redirect_to diplomas_url, notice: "Diploma was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
