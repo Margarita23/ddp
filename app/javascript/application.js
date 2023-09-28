@@ -72,17 +72,13 @@ $( ".btn-create-student" ).on( "click", function() {
   $( ".form_container" ).toggle("slow");
 });
 
-$( ".btn__add" ).on( "click", function() {
+$( ".btn__add, .btn__reset" ).on( "click", function() {
   $( ".form_container" ).toggle("slow");
   $( ".btn__reset, .btn__add" ).toggle("slow");
 });
 
-$( ".btn__reset" ).on( "click", function() {
-  $( ".form_container" ).toggle("slow");
-  $( ".btn__reset, .btn__add" ).toggle("slow");
+$( ".btn__set_mark, .btn__reset--set_mark" ).on( "click", function() {
+  $( ".form_container--mark" ).toggle("slow");
+  $( ".btn__reset--set_mark, .btn__set_mark" ).toggle("slow");
 });
-
-
-
-
   

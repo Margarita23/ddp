@@ -11,6 +11,7 @@ class StudentsController < ApplicationController
     
     @diploma = @student.diploma
     @question = Question.new
+    @mark = Mark.new
 
     respond_to do |format|
       format.html

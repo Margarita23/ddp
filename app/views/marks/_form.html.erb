@@ -1,0 +1,19 @@
+<%= form_with(model: mark) do |form| %>
+
+  <div class="field">
+    <%= form.label "Оцінка" %><br />
+      <div class="from-list">
+        <%= form.select(:mark, ["", 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], {selected: ""}, { class: "form-select" }) %>
+      </div>
+    </div>
+
+    <%= form.hidden_field :diploma_id, value: diploma_id %>
+    <%= form.hidden_field :teacher_id, value: teacher_id %>
+    <%= hidden_field_tag :student_id, student_id %>
+
+    <div>
+      <%= form.submit "Зберігти", class: "btn btn-success" %>
+    </div>
+  </div>
+
+<% end %>

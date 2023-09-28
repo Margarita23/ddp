@@ -43,8 +43,24 @@
   <button class="btn btn-outline-success btn__add">Додати питання</button>
   <button class="btn btn-outline-secondary btn__reset hidden">Не додавати питання</button>
 
+  <h4>Оцінки від членів комісії:</h4>
+  <ul>
+    <% diploma.marks.each do |mark| %>
+      <li>
+        <div class="member"><%= Teacher.find(mark.teacher_id).l_initials %></div>
+        <div class="mark"><%= mark.mark %></div>
+      </li>
+    <% end %>
+  </ul>
+
   <div class="form_container hidden">
     <%= render "questions/form", question: @question, diploma_id: diploma.id, student_id: diploma.student_id %>
   </div>
 
+  <button class="btn btn-outline-success btn__set_mark">Поставити оцінку</button>
+  <button class="btn btn-outline-secondary btn__reset--set_mark hidden">Не ставити оцінку</button>
+
+  <div class="form_container--mark hidden">
+    <%= render "marks/form", mark: @mark, diploma_id: diploma.id, teacher_id: 1, student_id: diploma.student_id %>
+  </div>
 </div>

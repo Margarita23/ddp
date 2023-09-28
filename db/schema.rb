@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_19_105638) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_28_122420) do
   create_table "commission_assignments", force: :cascade do |t|
     t.integer "teacher_id", null: false
     t.integer "commission_id", null: false
@@ -62,6 +62,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_105638) do
     t.integer "commission_id"
     t.index ["commission_id"], name: "index_groups_on_commission_id"
     t.index ["defense_process_id"], name: "index_groups_on_defense_process_id"
+  end
+
+  create_table "marks", force: :cascade do |t|
+    t.integer "teacher_id"
+    t.integer "mark"
+    t.integer "diploma_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diploma_id"], name: "index_marks_on_diploma_id"
   end
 
   create_table "protocols", force: :cascade do |t|
@@ -124,6 +133,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_105638) do
   add_foreign_key "diplomas", "students"
   add_foreign_key "groups", "commissions"
   add_foreign_key "groups", "defense_processes"
+  add_foreign_key "marks", "diplomas"
   add_foreign_key "protocols", "students"
   add_foreign_key "questions", "diplomas"
   add_foreign_key "students", "commissions"
