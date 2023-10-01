@@ -1,0 +1,6 @@
+name: ddp
+packages:
+  - path: app/assets/config
+  - path: app/javascript
+language: javascript
+appmap_dir: tmp/appmap

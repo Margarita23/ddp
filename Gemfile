@@ -70,6 +70,8 @@ group :development do
   gem "web-console"
   gem 'spring-watcher-listen', '~> 2.0'
   gem 'rails-erd'
+  gem 'railroady'
+  gem 'appmap'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
