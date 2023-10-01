@@ -3,6 +3,10 @@
 class Ability
   include CanCan::Ability
 
+  def init_secretary
+    cannot :create, Mark
+  end
+
   def initialize(user)
   
       user ||= User.new # guest user (not logged in)
@@ -12,6 +16,14 @@ class Ability
       if !user.new_record?
         can :crud, [DefenseProcess, Group, Student, Diploma]
         can :create_pdf, [Student]
+
+        case user.role
+          when "secretary"
+            init_secretary
+          # when "commissioner"
+          #  can :manage, [Post, Comment], user_id: user.id
+        end
+      
       else
         cannot :crud, [DefenseProcess, Group, Student, Diploma]
       end
