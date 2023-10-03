@@ -13,13 +13,13 @@
   </head>
 
   <body>
-    <div>
-      <%= render 'layouts/flashmessages' %>
-    </div>
-
     <% if current_user %>
       <%= render 'shared/header_menu' %>
     <% end %>
+
+    <div>
+      <%= render 'layouts/flashmessages' %>
+    </div>
 
     <div class="container">
       <%= yield %>

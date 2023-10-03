@@ -3,22 +3,18 @@ class GroupsController < ApplicationController
   load_and_authorize_resource :group, :through => :defense_process
   before_action :set_group, only: %i[ show edit update destroy ]
 
-  # GET /groups/1 or /groups/1.json
   def show
     @student = Student.new
     @teachers = Teacher.all
   end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
   def edit
   end
 
-  # POST /groups or /groups.json
   def create
     @group = @defense_process.groups.build(group_params)
 
@@ -33,7 +29,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /groups/1 or /groups/1.json
   def update
     respond_to do |format|
       if @group.update(group_params)
@@ -46,7 +41,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy
 
@@ -57,13 +51,11 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_group
-      # @group = Group.find(params[:id])
       @group = @defense_process.groups.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def group_params
       params.fetch(:group, {}).permit(:form, :specialization, :name_number, :specialty_code, :degree, :commission_id)
     end

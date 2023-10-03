@@ -7,20 +7,26 @@ class Ability
     cannot :create, Mark
   end
 
+  def init_commissioner
+    
+  end
+
   def initialize(user)
   
-      user ||= User.new # guest user (not logged in)
+      user ||= User.new
       
       alias_action :create, :read, :update, :destroy, to: :crud
       
       if !user.new_record?
-        can :crud, [DefenseProcess, Group, Student, Diploma]
-        can :create_pdf, [Student]
+        # can :crud, [DefenseProcess, Student, Diploma]
+        # can :create_pdf, [Student]
+        can :read, :all
 
         case user.role
           when "secretary"
             init_secretary
-          # when "commissioner"
+          when "commissioner"
+            init_commissioner
           #  can :manage, [Post, Comment], user_id: user.id
         end
       
