@@ -22,35 +22,29 @@ class DefenseProcessesController < ApplicationController
     @defense_process.user_id = current_user.id
 
     if @defense_process.save
-      flash[:notice] = "New defense process was successfully created"
-      # format.html { redirect_to defense_process_url(@defense_process), notice: "Defense process was successfully created." }
-      # format.json { render :show, status: :created, location: @defense_process }
+      flash[:notice] = "Новий захист успішно створений!"
     else
-      flash[:alert] = "New defense process wasn't successfully create" 
-      # format.html { render :new, status: :unprocessable_entity }
-      # format.json { render json: @defense_process.errors, status: :unprocessable_entity }
+      flash[:alert] = "Щось пішло не так :( Новий захист не створений!" 
     end
 
-    redirect_to root_path
+    redirect_back fallback_location: root_path
   end
 
   def update
-    respond_to do |format|
       if @defense_process.update(defense_process_params)
-        format.html { redirect_to defense_process_url(@defense_process), notice: "Defense process was successfully updated." }
-        format.json { render :show, status: :ok, location: @defense_process }
+        flash[:notice] = "Дані захисту успішно оновлений!"
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @defense_process.errors, status: :unprocessable_entity }
+        flash[:alert] = "Щось пішло не так :( Захист не оновився!" 
       end
-    end
+
+    redirect_to defense_process_url(@defense_process)
   end
 
   def destroy
     @defense_process.destroy
 
     respond_to do |format|
-      format.html { redirect_to defense_processes_url, notice: "Defense process was successfully destroyed." }
+      format.html { redirect_to defense_processes_url, notice: "Захист успішно видалений." }
       format.json { head :no_content }
     end
   end

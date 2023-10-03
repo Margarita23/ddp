@@ -1,11 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render partial: "/shared/icon_links_btns", locals: {back: defense_processes_path, edit: edit_defense_process_path, delete: defense_process_path, eye: false} %>
+<%= render partial: "/shared/icon_links_btns", locals: {back: defense_processes_path, edit: { path: edit_defense_process_path, resourse: @defense_process }, delete: defense_process_path, eye: false} %>
 
 <%= render @defense_process %>
 
 <div class="defense_container">
- <button class="btn btn-outline-success btn-create-defense"><%= t("group.create")%></button>
+  <% if can? :create, @group %>
+     <button class="btn btn-outline-success btn-create-defense"><%= t("group.create")%></button>
+  <% end %>
 
   <div class="form_container">
     <h1><%= t("group.new") %></h1>

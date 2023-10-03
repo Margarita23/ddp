@@ -4,11 +4,12 @@
             <i class="bi bi-arrow-left-circle defense"></i>
         <% end %>
     <% end %>
-
-    <% if edit %> 
-        <%= link_to edit do %>
-            <i class="bi bi-pencil defense"></i>
-        <% end%>
+    <% if edit %>
+        <% if can? :update, edit[:resource] %> 
+            <%= link_to edit[:path] do %>
+                <i class="bi bi-pencil defense"></i>
+            <% end %>
+        <% end %>
     <% end %>
 
     <% if delete %> 

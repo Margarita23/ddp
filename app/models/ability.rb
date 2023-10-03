@@ -5,6 +5,7 @@ class Ability
 
   def init_secretary
     cannot :create, Mark
+    can :crud, [DefenseProcess, Group, Student, Diploma]
   end
 
   def init_commissioner
