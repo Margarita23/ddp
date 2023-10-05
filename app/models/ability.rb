@@ -5,11 +5,11 @@ class Ability
 
   def init_secretary
     cannot :create, Mark
-    can :crud, [DefenseProcess, Group, Student, Diploma]
+    can :crud, [DefenseProcess, Group, Student, Diploma, Protocol]
   end
 
   def init_commissioner
-    
+    can [:create, :edit], Mark
   end
 
   def initialize(user)
@@ -28,7 +28,6 @@ class Ability
             init_secretary
           when "commissioner"
             init_commissioner
-          #  can :manage, [Post, Comment], user_id: user.id
         end
       
       else

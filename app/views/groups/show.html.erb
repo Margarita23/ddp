@@ -1,11 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render partial: "/shared/icon_links_btns", locals: { back: defense_process_path(@defense_process.id), edit: { path: edit_defense_process_group_path, resource: @group }, delete: defense_process_group_path, eye: false } %>
+<%= render partial: "/shared/icon_links_btns", locals: { back: defense_process_path(@defense_process.id), edit: { path: edit_defense_process_group_path, resource: @group }, delete: { path: defense_process_group_path, resource: @group }, eye: false } %>
 
 <%= render @group %>
 
-<div class="student_container">
- <button class="btn btn-outline-success btn-create-student">Додати студента в группу</button>
+<% if can? :create, @student %>
+  <div class="student_container">
+    <button class="btn btn-outline-success btn-create-student">Додати студента в группу</button>
 
   <div class="form_container">
     <h1><%= t("student.new") %></h1>
@@ -81,8 +82,9 @@
       </div>
     <% end %>
 
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="student__list">
 

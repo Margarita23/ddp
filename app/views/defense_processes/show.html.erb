@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render partial: "/shared/icon_links_btns", locals: {back: defense_processes_path, edit: { path: edit_defense_process_path, resourse: @defense_process }, delete: defense_process_path, eye: false} %>
+<%= render partial: "/shared/icon_links_btns", locals: {back: defense_processes_path, edit: { path: edit_defense_process_path, resource: @defense_process }, delete: { path: defense_process_path, resource: @defense_process }, eye: false} %>
 
 <%= render @defense_process %>
 

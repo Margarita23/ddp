@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render partial: "/shared/icon_links_btns", locals: { back: commissions_path, edit: { path: edit_commission_path(@commission), resource: @commission}, delete: @commission, eye: false } %>
+<%= render partial: "/shared/icon_links_btns", locals: { back: commissions_path, edit: { path: edit_commission_path(@commission), resource: @commission}, delete: { path: @commission, resource: @commission }, eye: false } %>
 
 <%= render @commission %>

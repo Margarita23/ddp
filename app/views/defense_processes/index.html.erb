@@ -13,4 +13,6 @@
   <% end %>
 </div>
 
-<%= link_to t("defense_process.new"), new_defense_process_path, class: "btn btn-outline-primary" %>
+<% if can? :create, DefenseProcess %>
+  <%= link_to t("defense_process.new"), new_defense_process_path, class: "btn btn-outline-primary" %>
+<% end %>

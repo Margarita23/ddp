@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render partial: "/shared/icon_links_btns", locals: { back: teachers_path, edit: { path: edit_teacher_path(@teacher), resource: @teacher }, delete: @teacher, eye: false } %>
+<%= render partial: "/shared/icon_links_btns", locals: { back: teachers_path, edit: { path: edit_teacher_path(@teacher), resource: @teacher }, delete: { path: @teacher, resource: @teacher }, eye: false } %>
 
 <%= render @teacher %>

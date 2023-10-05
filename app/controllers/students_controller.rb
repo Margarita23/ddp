@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-  load_and_authorize_resource
-  load_and_authorize_parent :group, permit: :create
+  load_and_authorize_resource :student
+  load_and_authorize_resource :group, permit: :create
   before_action :set_student, only: %i[ show edit update destroy ]
 
   def index

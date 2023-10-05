@@ -12,13 +12,15 @@
           <div>
             <%= render student.diploma %>
           </div>
-
         </div>
-        <%= link_to student_path(student.id), method: :get  do %>
-            <i class="bi bi-eye defense"></i>
+
+        <% if can? :create, Protocol %>
+          <%= link_to student_path(student.id), method: :get  do %>
+              <i class="bi bi-eye defense"></i>
+          <% end %>
+          <%= link_to 'Сформувати протокол', protocol_path(student_id: student.id) %>
+          <%= link_to 'pdf', protocol_path(format: :pdf) %>
+          <%= link_to 'Сформувати протокол в PDF', create_pdf_protocol_path %>
         <% end %>
-        <%= link_to 'Сформувати протокол', protocol_path(student_id: student.id) %>
-        <%= link_to 'pdf', protocol_path(format: :pdf) %>
-        <%= link_to 'Сформувати протокол в PDF', create_pdf_protocol_path %>
     </p>
 </div>
