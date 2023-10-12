@@ -4,7 +4,9 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><%= button_to "Створити Захист", new_defense_process_path, { method: :get, class: "btn btn-outline-success" } %></li>
+                <% if can? :create, DefenseProcess %>
+                    <li class="nav-item"><%= button_to "Створити Захист", new_defense_process_path, { method: :get, class: "btn btn-outline-success" } %></li>
+                <% end %>
                 <li class="nav-item">
                     <%= link_to t(:board), board_index_path, { title: "Перейти на сторінку #{:board}", class: "nav-link active", 'aria-current': "page" } %>
                 </li>
@@ -19,6 +21,9 @@
                 </li>
                 <li class="nav-item">
                     <%= link_to "Вчительський склад", teachers_path, { title: "Перейти на сторінку 'Вчительський склад'", class: "nav-link", 'aria-current': "page" } %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Методи оцінки BOCR", eval_methods_path, { title: "Перейти на сторінку 'Методи оцінки BOCR'", class: "nav-link", 'aria-current': "page" } %>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

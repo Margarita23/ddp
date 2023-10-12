@@ -56,6 +56,6 @@ class CommissionsController < ApplicationController
     end
 
     def commission_params
-      params.require(:commission).permit(:name, :number, :head_id, teacher_ids: [])
+      params.require(:commission).permit(:name, :number, :head_id, :eval_method_id, teacher_ids: [])
     end
 end

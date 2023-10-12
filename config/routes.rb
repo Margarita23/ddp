@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ratings
+  resources :eval_methods
   resources :questions
   resources :commissions
   resources :teachers

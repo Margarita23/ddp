@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @eval_method %>
+
+<div>
+  <%= link_to "Edit this eval method", edit_eval_method_path(@eval_method) %> |
+  <%= link_to "Back to eval methods", eval_methods_path %>
+
+  <%= button_to "Destroy this eval method", @eval_method, method: :delete %>
+</div>

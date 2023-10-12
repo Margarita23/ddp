@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Eval methods</h1>
+
+<div id="eval_methods">
+  <% @eval_methods.each do |eval_method| %>
+    <%= render eval_method %>
+    <p>
+      <%= link_to "Show this eval method", eval_method %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New eval method", new_eval_method_path %>

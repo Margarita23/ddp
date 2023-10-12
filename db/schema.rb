@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_122420) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_12_141848) do
   create_table "commission_assignments", force: :cascade do |t|
     t.integer "teacher_id", null: false
     t.integer "commission_id", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_122420) do
     t.integer "head_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "eval_method_id"
   end
 
   create_table "defense_processes", force: :cascade do |t|
@@ -47,6 +48,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_122420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_diplomas_on_student_id"
+  end
+
+  create_table "eval_methods", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "groups", force: :cascade do |t|
@@ -87,6 +94,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_122420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["diploma_id"], name: "index_questions_on_diploma_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.string "name"
+    t.integer "eval_method_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["eval_method_id"], name: "index_ratings_on_eval_method_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -136,6 +151,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_122420) do
   add_foreign_key "marks", "diplomas"
   add_foreign_key "protocols", "students"
   add_foreign_key "questions", "diplomas"
+  add_foreign_key "ratings", "eval_methods"
   add_foreign_key "students", "commissions"
   add_foreign_key "students", "groups"
   add_foreign_key "students", "teachers"

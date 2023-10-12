@@ -4,4 +4,9 @@ class Commission < ApplicationRecord
     has_many :groups, class_name: 'Group'
 
     validates :number, presence: true
+
+    def eval_method
+        return eval_method_id.nil? ? "Метод оцінки не визначений" : EvalMethod.find(eval_method_id).name
+    end
+
 end
