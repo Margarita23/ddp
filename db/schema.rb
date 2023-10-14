@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_12_141848) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_14_190703) do
   create_table "commission_assignments", force: :cascade do |t|
     t.integer "teacher_id", null: false
     t.integer "commission_id", null: false
@@ -27,6 +27,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_141848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "eval_method_id"
+  end
+
+  create_table "criteria", force: :cascade do |t|
+    t.string "name"
+    t.integer "eval_method_id", null: false
+    t.integer "expert_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["eval_method_id"], name: "index_criteria_on_eval_method_id"
+    t.index ["expert_id"], name: "index_criteria_on_expert_id"
   end
 
   create_table "defense_processes", force: :cascade do |t|
@@ -54,6 +64,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_141848) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "experts", force: :cascade do |t|
+    t.string "name"
+    t.integer "eval_method_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["eval_method_id"], name: "index_experts_on_eval_method_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -144,8 +162,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_141848) do
 
   add_foreign_key "commission_assignments", "commissions"
   add_foreign_key "commission_assignments", "teachers"
+  add_foreign_key "criteria", "eval_methods"
+  add_foreign_key "criteria", "experts"
   add_foreign_key "defense_processes", "users"
   add_foreign_key "diplomas", "students"
+  add_foreign_key "experts", "eval_methods"
   add_foreign_key "groups", "commissions"
   add_foreign_key "groups", "defense_processes"
   add_foreign_key "marks", "diplomas"

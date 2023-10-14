@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :criteria
+  resources :experts
   resources :ratings
   resources :eval_methods
   resources :questions
@@ -22,5 +24,7 @@ Rails.application.routes.draw do
   resources :protocols, only: [:show]
 
   get 'create_pdf_protocol', action: :create_pdf, controller: 'students'
+
+  get 'new_experts_list', action: :add_experts_list, controller: 'experts'
 
 end

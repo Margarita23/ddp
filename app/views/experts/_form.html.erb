@@ -1,0 +1,27 @@
+<%= form_with(model: expert) do |form| %>
+  <% if expert.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(expert.errors.count, "error") %> prohibited this expert from being saved:</h2>
+
+      <ul>
+        <% expert.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :eval_method_id, style: "display: block" %>
+    <%= form.text_field :eval_method_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

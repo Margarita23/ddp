@@ -2,6 +2,21 @@
 
 <%= render @eval_method %>
 
+<%# <% button_to new_list_expert, %> %>
+
+<%= form_with url: new_experts_list_path, method: :get do |form| %>
+  <div class="field">
+    <%= form.label "Вибрати комісію" %><br />
+      <div class="from-list">
+        <%= form.select(:commission_id, [""] + Commission.all.map { |commission| [commission.name, commission.id] }, { selected: "" }, { class: "form-select" }) %>
+      </div>
+  </div>
+  <div class="field">
+    <%= form.submit "Додати експертів", class: "btn btn-success" %>
+  </div>
+<% end %>
+
+
 <div>
   <%= link_to "Edit this eval method", edit_eval_method_path(@eval_method) %> |
   <%= link_to "Back to eval methods", eval_methods_path %>
