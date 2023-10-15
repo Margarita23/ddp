@@ -58,9 +58,28 @@ class ExpertsController < ApplicationController
   end
 
   def add_experts_list
-    # puts "***********"
-    # puts experts_params
-    # redirect_back fallback_location: root_path
+    delete_last_experts
+
+    commission = Commission.find(expert_params[:commission_id])
+    teachers = commission.teachers
+    head = commission.head
+
+    for teacher in teachers
+      expert = Expert.new(name: teacher.lfp, eval_method_id: params[:eval_method_id])
+      expert.save
+    end
+
+    expert_head = Expert.new(name: head.lfp, eval_method_id: params[:eval_method_id])
+    expert_head.save
+
+    redirect_back fallback_location: root_path
+  end
+
+  def  delete_last_experts
+    experts = Expert.where(eval_method_id: params[:eval_method_id])
+    for expert in experts
+      expert.destroy
+    end
   end
 
   private
@@ -71,10 +90,6 @@ class ExpertsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def expert_params
-      params.require(:expert).permit(:name, :eval_method_id)
+      params.require(:expert).permit(:name, :commission_id, :eval_method_id)
     end
-
-    # def experts_params
-    #   params.fetch(:expert, {}).permit(:commission_id)
-    # end
 end

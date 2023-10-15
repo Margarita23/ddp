@@ -8,6 +8,11 @@ class EvalMethodsController < ApplicationController
 
   # GET /eval_methods/1 or /eval_methods/1.json
   def show
+    @experts = Expert.where(eval_method: @eval_method.id)
+    puts "!!!!!!!!!!!!!!!!!!!!!!!"
+    for ex in @experts
+      puts ex
+    end
   end
 
   # GET /eval_methods/new

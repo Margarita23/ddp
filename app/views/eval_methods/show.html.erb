@@ -2,15 +2,25 @@
 
 <%= render @eval_method %>
 
-<%# <% button_to new_list_expert, %> %>
+<% if @experts.empty? %>
+  Експерти не визначені.
+<% else %>
+  <strong>Експерти</strong>
+  <ul class="experts_list">
+    <% for expert in @experts %>
+      <li><%= expert.name %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-<%= form_with url: new_experts_list_path, method: :get do |form| %>
+<%= form_with url: new_experts_list_path, model: Expert, method: :get do |form| %>
   <div class="field">
     <%= form.label "Вибрати комісію" %><br />
       <div class="from-list">
         <%= form.select(:commission_id, [""] + Commission.all.map { |commission| [commission.name, commission.id] }, { selected: "" }, { class: "form-select" }) %>
       </div>
   </div>
+  <%= hidden_field_tag :eval_method_id, @eval_method.id %>
   <div class="field">
     <%= form.submit "Додати експертів", class: "btn btn-success" %>
   </div>

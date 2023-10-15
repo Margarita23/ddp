@@ -9,4 +9,8 @@ class Commission < ApplicationRecord
         return eval_method_id.nil? ? "Метод оцінки не визначений" : EvalMethod.find(eval_method_id).name
     end
 
+    def head
+        return Teacher.find(head_id)
+    end
+
 end
